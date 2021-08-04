@@ -141,6 +141,19 @@ module.exports = {
     // lineNumbers: true,
     extractHeaders: ["h2", "h3", "h4", "h5"]
   },
+
+  plugins: [
+    // [
+    //   '@vuepress/back-to-top'
+    // ],
+    // [
+    //   'sitemap', 
+    //   {
+    //     hostname: 'https://c01day.top/'
+    //   },
+    // ]
+  ],
+
   configureWebpack: () => {
     return {
       resolve: {

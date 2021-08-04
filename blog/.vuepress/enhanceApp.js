@@ -15,7 +15,8 @@ import {
   RiWeiboFill,
   HiMail,
   AiCv,
-  RiSpaceShipFill
+  RiSpaceShipFill,
+  RiBook2Fill
 } from "oh-vue-icons/icons";
 
 OhVueIcon.add(
@@ -33,5 +34,6 @@ OhVueIcon.add(
   RiWeiboFill,
   HiMail,
   AiCv,
-  RiSpaceShipFill
+  RiSpaceShipFill,
+  RiBook2Fill
 );

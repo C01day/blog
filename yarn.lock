@@ -1373,6 +1373,13 @@
   dependencies:
     lodash.debounce "^4.0.8"
 
+"@vuepress/plugin-back-to-top@^1.8.2":
+  version "1.8.2"
+  resolved "https://registry.yarnpkg.com/@vuepress/plugin-back-to-top/-/plugin-back-to-top-1.8.2.tgz#e9794409d1d589e4952b0700291270d2696e6d01"
+  integrity sha512-htAf2m8+6cGmYQexWerznGBY10y1E4TBfebYC3Y3wqNjFjvXUmRKcAG/u6Yxvey4OFkQUxbth2ilKi/GlIW8aQ==
+  dependencies:
+    lodash.debounce "^4.0.8"
+
 "@vuepress/plugin-blog@1.9.4":
   version "1.9.4"
   resolved "https://registry.npm.taobao.org/@vuepress/plugin-blog/download/@vuepress/plugin-blog-1.9.4.tgz#34636d0387d28221c9f2564b6255786da0dd186a"
@@ -8841,8 +8848,8 @@ vuepress-plugin-mailchimp@^1.4.1:
 
 vuepress-plugin-sitemap@^2.3.1:
   version "2.3.1"
-  resolved "https://registry.npm.taobao.org/vuepress-plugin-sitemap/download/vuepress-plugin-sitemap-2.3.1.tgz#51298aca77a5de96396fdbd1103e1637dd61ae6a"
-  integrity sha1-USmKynel3pY5b9vRED4WN91hrmo=
+  resolved "https://registry.yarnpkg.com/vuepress-plugin-sitemap/-/vuepress-plugin-sitemap-2.3.1.tgz#51298aca77a5de96396fdbd1103e1637dd61ae6a"
+  integrity sha512-n+8lbukhrKrsI9H/EX0EBgkE1pn85LAQFvQ5dIvrZP4Kz6JxPOPPNTQmZMhahQV1tXbLZQCEN7A1WZH4x+arJQ==
   dependencies:
     sitemap "^3.0.0"
 
