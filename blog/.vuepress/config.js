@@ -49,70 +49,71 @@ module.exports = {
     // },
     nav: [
       {
-        text: "Home",
+        text: "主页",
         link: "/",
         icon: "fa-fort-awesome"
       },
       {
-        text: "About",
+        text: "关于我",
         link: "/about/",
         icon: "fa-paw"
       },
       {
-        text: "Tags",
+        text: "文章",
         link: "/tags/",
         icon: "fa-tag"
       },
       {
-        text: "Links",
+        text: "外链",
         link: "/links/",
         icon: "fa-satellite-dish"
       },
       {
-        text: "Portfolio",
-        link: "https://portfolio.zxh.io/",
-        icon: "ri-space-ship-fill"
+        text: "文档",
+        link: "/",
+        icon: "ri-book-2-fill"
       }
     ],
     personalInfo: {
-      name: "Renovamen",
+      name: "C01day",
       avatar: "/img/avatar.jpg",
-      description: "いつか、私がヒトじゃなくなっても",
+      description: "天凉",
       sns: {
-        github: "Renovamen",
+        github: "C01day",
         linkedin: "xiaohan-zou",
         facebook: "renovamen.zou",
         twitter: "renovamen_zxh",
         zhihu: "chao-neng-gui-su",
-        email: "renovamenzxh@gmail.com"
+        email: "ddaweizhou@gmail.com"
       }
     },
     homeHeaderImages: {
-      local: [
-        {
-          path: "/img/home-bg/1.jpg",
-          mask: "rgba(40, 57, 101, .4)"
-        },
-        {
-          path: "/img/home-bg/2.jpg",
-          mask: "rgba(196, 176, 131, .1)"
-        },
-        {
-          path: "/img/home-bg/3.jpg",
-          mask: "rgba(68, 74, 83, .1)"
-        },
-        {
-          path: "/img/home-bg/4.jpg",
-          mask: "rgba(19, 75, 50, .2)"
-        },
-        {
-          path: "/img/home-bg/5.jpg"
-        }
-      ]
+      api: "https://source.unsplash.com/1600x900/?nature"
+      // local: [
+      //   {
+      //     path: "/img/home-bg/1.jpg",
+      //     mask: "rgba(40, 57, 101, .4)"
+      //   },
+      //   {
+      //     path: "/img/home-bg/2.jpg",
+      //     mask: "rgba(196, 176, 131, .1)"
+      //   },
+      //   {
+      //     path: "/img/home-bg/3.jpg",
+      //     mask: "rgba(68, 74, 83, .1)"
+      //   },
+      //   {
+      //     path: "/img/home-bg/4.jpg",
+      //     mask: "rgba(19, 75, 50, .2)"
+      //   },
+      //   {
+      //     path: "/img/home-bg/5.jpg"
+      //   }
+      // ]
     },
     pages: {
       tags: {
-        title: "Tags",
+        title: "文章",
         subtitle: "Black Sheep Wall",
         bgImage: {
           path: "/img/pages/tags.jpg",
@@ -120,7 +121,7 @@ module.exports = {
         }
       },
       links: {
-        title: "Links",
+        title: "外链",
         subtitle:
           "When you are looking at the stars, please put the brightest star shining night sky as my soul.",
         bgImage: {
@@ -130,7 +131,7 @@ module.exports = {
       }
     },
     footer: `
-      &copy; <a href="https://github.com/Renovamen" target="_blank">Renovamen</a> 2018-2021
+      &copy; <a href="https://github.com/C01day" target="_blank">C01day</a> 2021
       <br>
       Powered by <a href="https://vuepress.vuejs.org" target="_blank">VuePress</a> &
       <a href="https://github.com/Renovamen/vuepress-theme-gungnir" target="_blank">Gungnir</a>

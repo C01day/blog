@@ -6,7 +6,7 @@
       </h2>
       <h2>404 - {{ $themeLocales.notFound }}</h2>
       <router-link to="/">
-        <h2>$ cd /home/</h2>
+        <h2>C01day</h2>
       </router-link>
     </article>
   </Common>

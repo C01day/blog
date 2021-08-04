@@ -9,7 +9,7 @@
     }"
   >
     <router-link to="/" class="home-link">
-      <span ref="siteName" class="site-name"> $ cd /home/ </span>
+      <span ref="siteName" class="site-name"> C01day </span>
     </router-link>
 
     <div
