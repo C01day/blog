@@ -101,28 +101,32 @@ module.exports = {
       }
     },
     homeHeaderImages: {
-      api: "https://source.unsplash.com/1600x900/?nature,water,travel"
-      // local: [
-      //   {
-      //     path: "/img/home-bg/1.jpg",
-      //     mask: "rgba(40, 57, 101, .4)"
-      //   },
-      //   {
-      //     path: "/img/home-bg/2.jpg",
-      //     mask: "rgba(196, 176, 131, .1)"
-      //   },
-      //   {
-      //     path: "/img/home-bg/3.jpg",
-      //     mask: "rgba(68, 74, 83, .1)"
-      //   },
-      //   {
-      //     path: "/img/home-bg/4.jpg",
-      //     mask: "rgba(19, 75, 50, .2)"
-      //   },
-      //   {
-      //     path: "/img/home-bg/5.jpg"
-      //   }
-      // ]
+      // api: "https://source.unsplash.com/1600x900/?nature,water,travel"
+      local: [
+        {
+          path: "/img/home-background/1.jpg",
+          // mask: "rgba(40, 57, 101, .4)"
+        },
+        {
+          path: "/img/home-background/2.jpg",
+          // mask: "rgba(196, 176, 131, .1)"
+        },
+        // {
+        //   path: "/img/home-background/3.jpg",
+        //   // mask: "rgba(68, 74, 83, .1)"
+        // },
+        // {
+        //   path: "/img/home-background/4.jpg",
+        //   // mask: "rgba(19, 75, 50, .2)"
+        // },
+        // {
+        //   path: "/img/home-background/5.jpg",
+        //   // mask: "rgba(19, 75, 50, .2)"
+        // },
+        // {
+        //   path: "/img/home-background/6.jpg"
+        // }
+      ]
     },
     pages: {
       tags: {
