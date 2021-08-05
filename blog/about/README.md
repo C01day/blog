@@ -1,9 +1,9 @@
 ---
 layout: About
 title: About
-avatar: /img/about-avatar.png
-name: Xiaohan Zou
-subname: 邹笑寒
+avatar: /img/avatar.jpg
+name: DaWei Zhou
+subname: 周大为
 cv: /files/cv/brief/en.pdf
 
 interests:

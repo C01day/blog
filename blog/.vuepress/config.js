@@ -1,8 +1,8 @@
 const path = require("path");
 
 module.exports = {
-  title: "Renovamen (Xiaohan Zou)",
-  description: "Renovamen's blog, powered by VuePress, themed by Gungnir.",
+  title: "C01day",
+  description: "C01day's blog, powered by VuePress, themed by Gungnir.",
   head: [
     ["link", { rel: "icon", href: "/img/logo.svg" }],
     [
@@ -20,7 +20,8 @@ module.exports = {
     // docsBranch: "master",
     editLinks: true,
     lastUpdated: true,
-    // hitokoto: {
+    hitokoto: true,
+    // {
     //   api: "https://v1.hitokoto.cn/?c=c&c=d&c=h&c=i&c=j&c=k"
     // },
     searchIcon: "ri-search-2-line",

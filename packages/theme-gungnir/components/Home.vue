@@ -50,7 +50,7 @@
       </div>
     </div>
 
-    <PostList class="home-blog-wrapper" :data="$pagination.pages" />
+    <!-- <PostList class="home-blog-wrapper" :data="$pagination.pages" /> -->
   </div>
 </template>
 
@@ -94,15 +94,17 @@ export default {
 
     // fetch hitokoto api
     if (this.$themeConfig.hitokoto) {
-      const HITOKOTO_URL =
-        this.$themeConfig.hitokoto.api || "https://v1.hitokoto.cn";
-      fetch(HITOKOTO_URL)
-        .then((response) => response.json())
-        .then((data) => {
-          const hitokoto = this.$refs.hitokoto;
-          hitokoto.innerText = data.hitokoto;
-        })
-        .catch(`Get ${HITOKOTO_URL} error: `, console.error);
+      const hitokoto = this.$refs.hitokoto;
+      hitokoto.innerText = "欢迎来到C01day的博客，在这里记录我的研究生生活~";
+      // const HITOKOTO_URL =
+      //   this.$themeConfig.hitokoto.api || "https://v1.hitokoto.cn";
+      // fetch(HITOKOTO_URL)
+      //   .then((response) => response.json())
+      //   .then((data) => {
+      //     const hitokoto = this.$refs.hitokoto;
+      //     hitokoto.innerText = data.hitokoto;
+      //   })
+      //   .catch(`Get ${HITOKOTO_URL} error: `, console.error);
     }
   },
 
