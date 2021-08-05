@@ -3,6 +3,7 @@ const path = require("path");
 module.exports = {
   title: "C01day",
   description: "C01day's blog, powered by VuePress, themed by Gungnir.",
+  
   head: [
     ["link", { rel: "icon", href: "/img/logo.svg" }],
     [
@@ -13,7 +14,18 @@ module.exports = {
       }
     ]
   ],
+
   theme: "gungnir",
+
+  locales: {
+    "/": {
+      lang: "zh-CN"
+    },
+    // "/en/": {
+    //   lang: "en-US"
+    // }
+  },
+
   themeConfig: {
     // repo: "Renovamen/renovamen.github.io",
     docsDir: "blog",
@@ -31,12 +43,12 @@ module.exports = {
     //   copyright: "Renovamen 2018-2021",
     //   count: 20
     // },
-    // comment: {
-    //   owner: "This-is-an-Apple",
-    //   repo: "gitalk-comments",
-    //   clientId: "d6247712dc288a5a60ca",
-    //   clientSecret: "ed1ec72417828343c79ed910a1b77d140fa715a7"
-    // },
+    comment: {
+      owner: "C01day",
+      repo: "Vssue-comments",
+      clientId: "7519f1d06d54f825191c",
+      clientSecret: "6fbf56328ccc37d6226dc9d0b6e6fdfefb9f3994"
+    },
     // analytics: {
     //   ga: "UA-146858305-1",
     //   ba: "75381d210789d3eaf855fa16246860cc"

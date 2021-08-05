@@ -21,7 +21,7 @@
 
         <div v-if="$themeConfig.hitokoto" class="hero-bubble">
           <div class="hero-bubble__body">
-            <p ref="hitokoto">正在加载一言...</p>
+            <p ref="hitokoto">正在加载中...</p>
           </div>
           <div class="hero-bubble__tile" />
         </div>
