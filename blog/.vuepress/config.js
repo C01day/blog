@@ -89,7 +89,7 @@ module.exports = {
       }
     },
     homeHeaderImages: {
-      api: "https://source.unsplash.com/1600x900/?nature"
+      api: "https://source.unsplash.com/1600x900/?nature,water,travel"
       // local: [
       //   {
       //     path: "/img/home-bg/1.jpg",

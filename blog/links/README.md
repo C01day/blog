@@ -2,7 +2,7 @@
 layout: Links
 title: Links
 links:
-  - title: 我自己能用就完事了
+  - title: 学习？学个pi~
     items:
       - sitename: Flint
         url: https://github.com/Renovamen/flint
@@ -24,7 +24,7 @@ links:
         url: https://vuepress-theme-gungnir.vercel.app/
         img: /img/links/gungnir.svg
         desc: VuePress 主题
-  - title: 咸鱼翻滚
+  - title: 摸鱼混子
     items:
       - sitename: What If?
         url: https://note.zxh.io
