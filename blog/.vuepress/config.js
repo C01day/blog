@@ -81,10 +81,10 @@ module.exports = {
       description: "天凉",
       sns: {
         github: "C01day",
-        linkedin: "xiaohan-zou",
-        facebook: "renovamen.zou",
-        twitter: "renovamen_zxh",
-        zhihu: "chao-neng-gui-su",
+        linkedin: "周-大为-a834b7219",
+        facebook: "profile.php?viewas=100000686899395&id=100071290415083",
+        twitter: "",
+        zhihu: "rou-tuo-tuo-81-51",
         email: "ddaweizhou@gmail.com"
       }
     },
