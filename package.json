@@ -11,7 +11,7 @@
   "useWorkspaces": true,
   "scripts": {
     "dev": "vuepress dev blog",
-    "build": "vuepress build blog --dest dist",
+    "build": "vuepress build blog",
     "preview": "cd dist && http-server"
   },
   "devDependencies": {
