@@ -1,10 +1,10 @@
 *.log
 .DS_Store
 .cache/
-node_modules
+node_modules/
 dist
 .npmrc
 .yarnrc
-.vscode
+.vscode/
 blog/.vuepress/dist/
 blog/drafts/
