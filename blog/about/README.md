@@ -2,29 +2,39 @@
 layout: About
 title: About
 avatar: /img/avatar.jpg
-name: DaWei Zhou
-subname: 周大为
+name: 周大为
+subname: DaWei Zhou
 cv: /files/cv/brief/cn.pdf
 
 interests:
-  - Continual Learning
-  - Meta-Learning
-  - Machine Learning
-  - <s>Sleeping and Eating</s>
+  - 魔方
+  - Copperplate
+  # - <s>Sleeping and Eating</s>
 
 education:
-  - degree: M.S. in Computer Science
-    year: 2023
-    school: Boston University
-  - degree: B.Eng. in Software Engineering
-    year: 2020
-    school: Tongji University
+  - degree: 计算机科学与技术学院，硕士
+    year: 2021-2024
+    school: 复旦大学
+  - degree: 计算机科学与技术学院，学士
+    year: 2017-2021
+    school: 上海大学
 ---
 
 
-## Miscellaneous
+## 絮絮叨叨
 
-- 🔍 [This blog](https://github.com/Renovamen/renovamen.github.io) is powered by [VuePress](https://vuepress.vuejs.org/), themed by [Gungnir](https://github.com/Renovamen/vuepress-theme-gungnir), and hosted by [Github Pages](https://pages.github.com/) and [Vercel](https://vercel.com).
+- 因为网名就是`天凉好个秋`，所以就简写成`天凉`了，翻译成 Cold Day 🍁，然后挤一挤就变成 C01day 了。是不是很合理，很 s1mple ~
+<br/><br/>
+
+- 其实我一直以来的梦想就是摸🐟，但好像鱼都被🎣走了
+<br/><br/>
+
+- 不能再抓头发了，不知道哪一天会秃顶
+<br/><br/>
+
+- 头像是奶切，老痒痒鼠了(~~可能真的会秃~~)
+  
+<!-- - 🔍 [This blog](https://github.com/Renovamen/renovamen.github.io) is powered by [VuePress](https://vuepress.vuejs.org/), themed by [Gungnir](https://github.com/Renovamen/vuepress-theme-gungnir), and hosted by [Github Pages](https://pages.github.com/) and [Vercel](https://vercel.com).
 
 - 🎃 *Renovamen* is an Latin word means *renewal*.
 
@@ -34,4 +44,4 @@ education:
 
 - 🌭 My dream: `while(sleeping){money++;}`
 
-- 🎃 I'm currently interested in constructing buildings in Minecraft.
+- 🎃 I'm currently interested in constructing buildings in Minecraft. -->

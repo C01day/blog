@@ -1,1 +1,7 @@
-Xiaohan is ~~a dragon lost in human world~~ now an incoming [Computer Science](https://www.bu.edu/cs/) master's student at [Boston University](https://www.bu.edu/) and an intern at [Kuaishou](https://www.kuaishou.com/). She is also working as a research assistant at Peking University supervised by [Prof. Tong Lin](http://www.cis.pku.edu.cn/jzyg/szdw/lt.htm). Before that, she got her bachelor's degree in [Software Engineering](http://sse.tongji.edu.cn/) at [Tongji University](https://www.tongji.edu.cn/). Her research interests lie primarily in topics related to exploring the capability of machines to be continual and efficient, like continual learning, meta-learning and few-shot learning. She is also working on multi-modal retrieval during her internship.
+菜鸡一枚，喜欢玩魔方，最好的时候三速AVG 15s，现在可能连公式都忘了，~~这辈子都学不会彳亍了~~。
+
+ACM退役老年人，虽然落后太多，但还是落后太多。
+
+~~至今都没有女朋友，看缘分~~
+
+本科天天摸鱼，混着混着就毕业了，仿佛四年就是一瞬间。硕士主修数据科学方向，虽然啥也不懂，但希望在读研期间能学到点知识。我会在这里记录我的研究生日常，~~虽然没人看就是~~。

@@ -107,10 +107,10 @@ module.exports = {
           path: "/img/home-background/1.jpg",
           // mask: "rgba(40, 57, 101, .4)"
         },
-        {
-          path: "/img/home-background/2.jpg",
-          // mask: "rgba(196, 176, 131, .1)"
-        },
+        // {
+        //   path: "/img/home-background/2.jpg",
+        //   // mask: "rgba(196, 176, 131, .1)"
+        // },
         // {
         //   path: "/img/home-background/3.jpg",
         //   // mask: "rgba(68, 74, 83, .1)"

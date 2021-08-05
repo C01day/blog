@@ -24,7 +24,7 @@
           </div>
         </div>
         <div class="profile__info col-md-8">
-          <h3 class="title">Biography</h3>
+          <h3 class="title">关于我</h3>
           <div class="bio-info" v-html="this.bio" />
           <div class="personal-info">
             <div class="col-md-5 interests">
