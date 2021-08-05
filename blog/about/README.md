@@ -4,7 +4,7 @@ title: About
 avatar: /img/avatar.jpg
 name: DaWei Zhou
 subname: 周大为
-cv: /files/cv/brief/en.pdf
+cv: /files/cv/brief/cn.pdf
 
 interests:
   - Continual Learning

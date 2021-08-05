@@ -55,7 +55,7 @@ const platform_links = {
 };
 
 const platform_icons = {
-  github: "fa-github-alt",
+  github: "fa-github",
   linkedin: "fa-linkedin-in",
   facebook: "fa-facebook-f",
   twitter: "fa-twitter",
