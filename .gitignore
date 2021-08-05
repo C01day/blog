@@ -5,4 +5,5 @@ node_modules
 dist
 .npmrc
 .yarnrc
+blog/.vuepress/dist/
 blog/drafts/
