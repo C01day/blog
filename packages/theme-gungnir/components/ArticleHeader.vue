@@ -43,9 +43,10 @@
           <v-icon name="fa-regular-calendar" />
           <span>{{ articleInfo.frontmatter.date | formatDateValue }}</span>
         </div>
-
+        
         <div v-if="articleInfo.readingTime" class="icon">
           <v-icon name="ri-timer-line" />
+          <!-- <Valine/> -->
           <span>{{ articleInfo.readingTime.minutes }} min</span>
         </div>
       </div>
@@ -55,6 +56,7 @@
 
 <script>
 import { formatDate } from "@theme/utils/time";
+import Valine from "@theme/components/Valine";
 
 export default {
   filters: {

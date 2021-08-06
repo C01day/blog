@@ -1,4 +1,4 @@
-# Hi! 🧐
+<!-- # Hi! 🧐
 
 [![blog](https://img.shields.io/badge/Blog-Renovamen-red?style=flat-square)](https://zxh.io) [![renovamen's blog](https://img.shields.io/badge/GitHub-renovamen.github.io-6A7EC2?style=flat-square)](https://github.com/Renovamen/renovamen.github.io) [![VuePress](https://img.shields.io/badge/VuePress-build-1aad19?style=flat-square)](https://github.com/vuejs/vuepress) [![vuepress-theme-gungnir](https://img.shields.io/badge/Gungnir-theme-26a2ff?style=flat-square)](https://github.com/Renovamen/vuepress-theme-gungnir) [![license](https://img.shields.io/badge/License-Apache--2.0-orange?style=flat-square)](LICENSE)
 
@@ -28,4 +28,4 @@ yarn run build  # vuepress build blog
 &nbsp;
 ## License
 
-This blog is [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0) licensed, see the [LICENSE](LICENSE) file for details.
+This blog is [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0) licensed, see the [LICENSE](LICENSE) file for details. -->

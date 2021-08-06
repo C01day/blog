@@ -58,6 +58,7 @@ module.exports = {
     // mdPlus: {
     //   all: true
     // },
+    readingTime: false,
     // readingTime: {
     //   excludes: ["/about", "/tags/.*", "/links"]
     // },
