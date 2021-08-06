@@ -37,6 +37,7 @@ module.exports = {
     //   api: "https://v1.hitokoto.cn/?c=c&c=d&c=h&c=i&c=j&c=k"
     // },
     searchIcon: "ri-search-2-line",
+    searchPlaceholder: "想搜点什么呢~",
     codeTheme: "gungnir-dark",
     // rss: {
     //   site_url: "https://zxh.io",
