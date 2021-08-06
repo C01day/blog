@@ -56,13 +56,13 @@
 
 <script>
 import { formatDate } from "@theme/utils/time";
-import Valine from "@theme/components/Valine";
+// import Valine from "@theme/components/Valine";
 
 export default {
-  
-  components: {
-    Valine,
-  },
+
+  // components: {
+  //   Valine,
+  // },
 
   filters: {
     // format the original time value: 2019-09-20T18:22:30.000Z
