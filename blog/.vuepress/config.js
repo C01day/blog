@@ -132,19 +132,19 @@ module.exports = {
     pages: {
       tags: {
         title: "文章",
-        subtitle: "Black Sheep Wall",
+        subtitle: "点击标签可以检索相关的文章~",
         bgImage: {
           path: "/img/pages/tags.jpg",
-          mask: "rgba(211, 136, 37, .5)"
+          // mask: "rgba(211, 136, 37, .5)"
         }
       },
       links: {
         title: "外链",
         subtitle:
-          "When you are looking at the stars, please put the brightest star shining night sky as my soul.",
+          "看看有啥网站吧~",
         bgImage: {
           path: "/img/pages/links.jpg",
-          mask: "rgba(64, 118, 190, 0.5)"
+          // mask: "rgba(64, 118, 190, 0.5)"
         }
       }
     },
