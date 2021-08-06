@@ -27,7 +27,7 @@ module.exports = {
   },
 
   themeConfig: {
-    // repo: "Renovamen/renovamen.github.io",
+    // repo: "C01day/blog",
     docsDir: "blog",
     // docsBranch: "master",
     editLinks: true,
@@ -47,7 +47,7 @@ module.exports = {
       owner: "C01day",
       repo: "Vssue-comments",
       clientId: "7519f1d06d54f825191c",
-      clientSecret: "6fbf56328ccc37d6226dc9d0b6e6fdfefb9f3994"
+      clientSecret: "6fbf56328ccc37d6226dc9d0b6e6fdfefb9f3994",
     },
     // analytics: {
     //   ga: "UA-146858305-1",
@@ -83,7 +83,7 @@ module.exports = {
       },
       {
         text: "文档",
-        link: "/",
+        link: "/docs/",
         icon: "ri-book-2-fill"
       }
     ],
@@ -92,7 +92,7 @@ module.exports = {
       avatar: "/img/avatar.jpg",
       description: "天凉",
       sns: {
-        github: "C01day",
+        github: "C01day/blog",
         linkedin: "c01day",
         facebook: "C01day",
         twitter: "",

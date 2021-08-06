@@ -50,7 +50,7 @@
       </div>
     </div>
 
-    <!-- <PostList class="home-blog-wrapper" :data="$pagination.pages" /> -->
+    <PostList class="home-blog-wrapper" :data="$pagination.pages" />
   </div>
 </template>
 

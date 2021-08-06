@@ -12,10 +12,10 @@ interests:
   # - <s>Sleeping and Eating</s>
 
 education:
-  - degree: 计算机科学与技术学院，硕士
+  - degree: 计算机科学与技术,硕士
     year: 2021-2024
     school: 复旦大学
-  - degree: 计算机科学与技术学院，学士
+  - degree: 计算机科学与技术,学士
     year: 2017-2021
     school: 上海大学
 ---
@@ -33,6 +33,9 @@ education:
 <br/><br/>
 
 - 头像是奶切，老痒痒鼠了(~~可能真的会秃~~)
+<br/><br/>
+
+- 正在试着弄懂主题的代码，然后自己加点东西
   
 <!-- - 🔍 [This blog](https://github.com/Renovamen/renovamen.github.io) is powered by [VuePress](https://vuepress.vuejs.org/), themed by [Gungnir](https://github.com/Renovamen/vuepress-theme-gungnir), and hosted by [Github Pages](https://pages.github.com/) and [Vercel](https://vercel.com).
 
