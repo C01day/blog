@@ -55,6 +55,7 @@ module.exports = {
     //   ba: "75381d210789d3eaf855fa16246860cc"
     // },
     // katex: true,
+    // chartjs: true,
     // mdPlus: {
     //   all: true
     // },
