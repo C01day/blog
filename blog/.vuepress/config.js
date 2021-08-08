@@ -5,7 +5,7 @@ module.exports = {
   description: "C01day's blog, powered by VuePress, themed by Gungnir.",
   
   head: [
-    ["link", { rel: "icon", href: "/img/logo.svg" }],
+    ["link", { rel: "icon", href: "/img/logo.png" }],
     [
       "meta",
       {
@@ -14,7 +14,7 @@ module.exports = {
       }
     ]
   ],
-
+  dest: 'public',
   theme: "gungnir",
 
   locales: {
@@ -25,8 +25,11 @@ module.exports = {
     //   lang: "en-US"
     // }
   },
-
+  // markdown: {
+  //   lineNumbers: true
+  // },
   themeConfig: {
+    // dest: 'public',
     // repo: "C01day/blog",
     docsDir: "blog",
     // docsBranch: "master",

@@ -7,7 +7,8 @@ set -e
 yarn run build
 
 # 进入生成的文件夹
-cd blog/.vuepress/dist
+# cd blog/.vuepress/dist
+cd public
 
 # 如果是发布到自定义域名
 # echo 'c01day.top' > CNAME
