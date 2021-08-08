@@ -35,6 +35,9 @@ education:
 - 头像是奶切，老痒痒鼠了(~~可能真的会秃~~)
 <br/><br/>
 
+- 网站图标是42姐吃冰激凌~
+<br/><br/>
+
 - 正在试着弄懂主题的代码，然后自己加点东西
   
 <!-- - 🔍 [This blog](https://github.com/Renovamen/renovamen.github.io) is powered by [VuePress](https://vuepress.vuejs.org/), themed by [Gungnir](https://github.com/Renovamen/vuepress-theme-gungnir), and hosted by [Github Pages](https://pages.github.com/) and [Vercel](https://vercel.com).
