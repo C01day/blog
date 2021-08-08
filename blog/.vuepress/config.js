@@ -25,9 +25,6 @@ module.exports = {
     //   lang: "en-US"
     // }
   },
-  // markdown: {
-  //   lineNumbers: true
-  // },
   themeConfig: {
     // dest: 'public',
     // repo: "C01day/blog",
@@ -113,25 +110,7 @@ module.exports = {
           path: "/img/home-background/1.jpg",
           // mask: "rgba(40, 57, 101, .4)"
         },
-        // {
-        //   path: "/img/home-background/2.jpg",
-        //   // mask: "rgba(196, 176, 131, .1)"
-        // },
-        // {
-        //   path: "/img/home-background/3.jpg",
-        //   // mask: "rgba(68, 74, 83, .1)"
-        // },
-        // {
-        //   path: "/img/home-background/4.jpg",
-        //   // mask: "rgba(19, 75, 50, .2)"
-        // },
-        // {
-        //   path: "/img/home-background/5.jpg",
-        //   // mask: "rgba(19, 75, 50, .2)"
-        // },
-        // {
-        //   path: "/img/home-background/6.jpg"
-        // }
+
       ]
     },
     pages: {
@@ -140,7 +119,6 @@ module.exports = {
         subtitle: "点击标签可以检索相关的文章~",
         bgImage: {
           path: "/img/pages/tags.jpg",
-          // mask: "rgba(211, 136, 37, .5)"
         }
       },
       links: {
@@ -149,7 +127,6 @@ module.exports = {
           "看看有啥网站吧~",
         bgImage: {
           path: "/img/pages/links.jpg",
-          // mask: "rgba(64, 118, 190, 0.5)"
         }
       }
     },
@@ -172,9 +149,22 @@ module.exports = {
     [
       'sitemap', 
       {
-        hostname: 'https://www.c01day.com/'
+        hostname: 'https://www.c01day.com/',
+        dateFormatter: val => {
+          return new Date().toISOString()
+        }
       },
-    ]
+    ],
+    [
+      '@vuepress/last-updated', 
+      {
+        transformer: (timestamp, lang) => {
+          const moment = require("moment");
+          moment.locale(lang);
+          return moment(timestamp).fromNow();
+        }
+      }
+    ],
   ],
 
   configureWebpack: () => {
