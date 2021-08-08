@@ -108,9 +108,10 @@ module.exports = {
       local: [
         {
           path: "/img/home-background/1.jpg",
-          // mask: "rgba(40, 57, 101, .4)"
         },
-
+        {
+          path: "/img/home-background/2.jpg",
+        },
       ]
     },
     pages: {
@@ -138,7 +139,7 @@ module.exports = {
     `
   },
   markdown: {
-    // lineNumbers: true,
+    lineNumbers: true,
     extractHeaders: ["h2", "h3", "h4", "h5"]
   },
 
