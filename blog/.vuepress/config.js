@@ -49,10 +49,10 @@ module.exports = {
       clientId: "7519f1d06d54f825191c",
       clientSecret: "6fbf56328ccc37d6226dc9d0b6e6fdfefb9f3994",
     },
-    // analytics: {
-    //   ga: "UA-146858305-1",
-    //   ba: "75381d210789d3eaf855fa16246860cc"
-    // },
+    analytics: {
+      ga: "G-3V16VY7C6L",
+      // ba: "75381d210789d3eaf855fa16246860cc"
+    },
     // katex: true,
     // chartjs: true,
     // mdPlus: {
