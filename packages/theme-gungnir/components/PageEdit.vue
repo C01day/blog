@@ -8,8 +8,8 @@
     </div>
 
     <div v-if="lastUpdated" class="last-updated">
-      <span class="prefix">{{ lastUpdatedText }}:</span>
-      <span class="time">{{ lastUpdated }}</span>
+      <span class="prefix">{{ lastUpdatedText() }}:</span>
+      <span class="time">{{ lastUpdated() }}</span>
     </div>
   </footer>
 </template>
@@ -20,15 +20,24 @@ import { endingSlashRE, outboundRE } from "@theme/utils/utils";
 
 export default {
   name: "PageEdit",
-
+  // data () {
+  //   return {
+  //     lastUpdatedText: null,
+  //     lastUpdated: null,
+  //   }
+  // },
+  // mounted: function() {
+  //   this.lastUpdatedText = this.$themeLocales.lastUpdated;
+  //   this.lastUpdated = this.$page.lastUpdated;
+  // },
   computed: {
-    lastUpdated() {
-      return this.$page.lastUpdated;
-    },
+    // lastUpdated() {
+    //   return this.$page.lastUpdated;
+    // },
 
-    lastUpdatedText() {
-      return this.$themeLocales.lastUpdated;
-    },
+    // lastUpdatedText() {
+    //   return this.$themeLocales.lastUpdated;
+    // },
 
     editLink() {
       const showEditLink = isNil(this.$page.frontmatter.editLink)
@@ -60,6 +69,14 @@ export default {
   },
 
   methods: {
+    
+    lastUpdatedText: function (){
+      return this.$themeLocales.lastUpdated;
+    },
+    lastUpdated: function (){
+      return this.$page.lastUpdated;
+    },
+
     createEditLink(repo, docsRepo, docsDir, docsBranch, path) {
       const bitbucket = /bitbucket.org/;
       if (bitbucket.test(docsRepo)) {

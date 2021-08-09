@@ -26,12 +26,11 @@ module.exports = {
     // }
   },
   themeConfig: {
-    // dest: 'public',
     // repo: "C01day/blog",
     docsDir: "blog",
     // docsBranch: "master",
     editLinks: true,
-    lastUpdated: true,
+    // lastUpdated: true,
     hitokoto: true,
     // {
     //   api: "https://v1.hitokoto.cn/?c=c&c=d&c=h&c=i&c=j&c=k"
