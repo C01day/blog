@@ -60,6 +60,7 @@ module.exports = (options, ctx) => {
           directories: [
             {
               id: "posts",
+              title: "Home",
               dirname: "posts",
               path: "/",
               layout: "HomePage",
