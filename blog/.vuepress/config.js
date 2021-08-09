@@ -50,7 +50,7 @@ module.exports = {
       clientSecret: "6fbf56328ccc37d6226dc9d0b6e6fdfefb9f3994",
     },
     analytics: {
-      ga: "G-3V16VY7C6L",
+      ga: "UA-204468193-1",
       // ba: "75381d210789d3eaf855fa16246860cc"
     },
     // katex: true,
