@@ -29,3 +29,4 @@ yarn run build  # vuepress build blog
 ## License
 
 This blog is [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0) licensed, see the [LICENSE](LICENSE) file for details. -->
+Welcome to my [blog](https://www.c01day.com),it's powered by [VuePress](https://vuepress.vuejs.org) & [Gungnir](https://github.com/Renovamen/vuepress-theme-gungnir)😇🥰🤗
