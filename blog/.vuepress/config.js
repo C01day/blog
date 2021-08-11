@@ -48,16 +48,17 @@ module.exports = {
       repo: "Vssue-comments",
       clientId: "7519f1d06d54f825191c",
       clientSecret: "6fbf56328ccc37d6226dc9d0b6e6fdfefb9f3994",
+      autoCreateIssue: true,
     },
     analytics: {
       ga: "UA-204468193-1",
       // ba: "75381d210789d3eaf855fa16246860cc"
     },
-    // katex: true,
-    // chartjs: true,
-    // mdPlus: {
-    //   all: true
-    // },
+    katex: true,
+    chartjs: true,
+    mdPlus: {
+      all: true
+    },
     readingTime: false,
     // readingTime: {
     //   excludes: ["/about", "/tags/.*", "/links"]
@@ -66,28 +67,32 @@ module.exports = {
       {
         text: "主页",
         link: "/",
-        icon: "fa-fort-awesome"
+        icon: "ri-home-2-line"
+        // icon: "fa-fort-awesome"
       },
       {
         text: "关于我",
         link: "/about/",
-        icon: "fa-paw"
+        icon: "bi-chat"
+        // icon: "fa-paw"
       },
       {
         text: "文章",
         link: "/tags/",
-        icon: "fa-tag"
+        icon: "bi-bookmark"
       },
       {
         text: "外链",
         link: "/links/",
-        icon: "fa-satellite-dish"
+        icon: "hi-rss",
+        // icon: "fa-satellite-dish"
       },
-      {
-        text: "文档",
-        link: "/docs/",
-        icon: "ri-book-2-fill"
-      }
+      // {
+      //   text: "文档",
+      //   link: "/docs/",
+      //   icon: "bi-journal"
+      //   icon: "ri-book-2-fill"
+      // }
     ],
     personalInfo: {
       name: "C01day",

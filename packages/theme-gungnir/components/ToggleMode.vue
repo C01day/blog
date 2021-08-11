@@ -6,7 +6,7 @@
     :title="'Toggle ' + nextMode"
     @click.prevent="toggleMode()"
   >
-    <v-icon v-if="currentMode === 'light'" name="fa-sun" />
+    <v-icon v-if="currentMode === 'light'" name="bi-sun-fill" />
     <v-icon v-else-if="currentMode === 'dark'" name="fa-moon" />
     <v-icon v-else-if="currentMode === 'auto'" name="fa-magic" />
   </a>

@@ -1,10 +1,14 @@
 import OhVueIcon from "oh-vue-icons";
 
 import {
-  FaFortAwesome,
-  FaPaw,
-  FaTag,
-  FaSatelliteDish,
+  // FaFortAwesome,//主页
+  // FaPaw,
+  // FaTag, //tag
+  // FaSatelliteDish, //外链
+  RiHome2Line,
+  BiChat,
+  BiBookmark,
+  HiRss,
   RiLinkM,
   RiSearch2Line,
   RiGithubFill,
@@ -16,14 +20,19 @@ import {
   HiMail,
   AiCv,
   RiSpaceShipFill,
-  RiBook2Fill
+  // RiBook2Fill,//文档
+  BiJournal,
 } from "oh-vue-icons/icons";
 
 OhVueIcon.add(
-  FaFortAwesome,
-  FaPaw,
-  FaTag,
-  FaSatelliteDish,
+  // FaFortAwesome,
+  // FaPaw,
+  // FaTag,
+  // FaSatelliteDish,
+  RiHome2Line,
+  BiChat,
+  BiBookmark,
+  HiRss,
   RiLinkM,
   RiSearch2Line,
   RiGithubFill,
@@ -35,5 +44,6 @@ OhVueIcon.add(
   HiMail,
   AiCv,
   RiSpaceShipFill,
-  RiBook2Fill
+  // RiBook2Fill,
+  BiJournal,
 );
