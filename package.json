@@ -1,7 +1,7 @@
 {
-  "name": "renovamen-blog",
-  "description": "Renovamen's blog, powered by VuePress, themed by Gungnir.",
-  "author": "Renovamen <renovamenzxh@gmail.com>",
+  "name": "c01day-blog",
+  "description": "C01day's blog, powered by VuePress, themed by Gungnir.",
+  "author": "C01day <ddaweizhou@gmail.com>",
   "license": "MIT",
   "private": true,
   "workspaces": [
@@ -16,6 +16,8 @@
   },
   "devDependencies": {
     "@vuepress/plugin-back-to-top": "^1.8.2",
+    "async-validator": "1.11.5",
+    "element-ui": "^2.15.5",
     "vuepress": "^1.8.2",
     "vuepress-theme-gungnir": "^0.1.8"
   },

@@ -48,7 +48,7 @@ module.exports = {
       repo: "Vssue-comments",
       clientId: "7519f1d06d54f825191c",
       clientSecret: "6fbf56328ccc37d6226dc9d0b6e6fdfefb9f3994",
-      autoCreateIssue: true,
+      // autoCreateIssue: true,
     },
     analytics: {
       ga: "UA-204468193-1",
