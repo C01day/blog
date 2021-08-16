@@ -11,7 +11,7 @@ yarn run build
 cd public
 
 # 如果是发布到自定义域名
-# echo 'c01day.top' > CNAME
+# echo 'c01day.com' > CNAME
 
 git init
 git add -A
