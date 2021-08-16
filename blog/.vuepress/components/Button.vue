@@ -57,3 +57,9 @@ export default {
   }
 };
 </script>
+
+<style>
+  .el-button + .el-button {
+    margin-top: 10px;
+  }
+</style>
