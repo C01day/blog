@@ -15,15 +15,16 @@
 export default {
   methods: {
       def() {
-        this.$message({
-          message: "默认按钮",
-          showClose: true,
+        this.$notify({
+          title: '提示',
+          message: "这是默认按钮",
         });
       },
       main() {
-        this.$message({
-          message: "主要按钮",
-          showClose: true,
+        this.$notify({
+          title: '提示',
+          message: "这是主要按钮",
+          type: 'success',
         });
       },
       success() {
