@@ -8,4 +8,7 @@ dist
 .vscode/
 blog/.vuepress/dist/
 blog/drafts/
-public/
+
+# 忽略当前目录下的public文件夹，如果写为 public/ 则会忽略所有public文件夹，包裹 subdir/public
+/public
+
