@@ -120,9 +120,6 @@ module.exports = {
           path: "/img/in-post/cover/108.jpg",
         },
         {
-          path: "/img/in-post/cover/110.jpg",
-        },
-        {
           path: "/img/in-post/cover/114.jpg",
         },
         {
