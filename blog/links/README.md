@@ -6,7 +6,7 @@ links:
     items:
       - sitename: Tian-Cheng Qi
         url: https://tcqi.github.io/
-        img: https://github.com/tcqi/tcqi.github.io/blob/gh-pages/img/avatar.jpg?raw=true
+        img: https://avatars.githubusercontent.com/u/89119174?v=4
         desc: 天成哥yyds！
   - title: 主题
     items:

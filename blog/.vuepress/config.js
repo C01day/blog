@@ -117,9 +117,6 @@ module.exports = {
           path: "/img/home-background/2.jpg",
         },
         {
-          path: "/img/in-post/cover/108.jpg",
-        },
-        {
           path: "/img/in-post/cover/114.jpg",
         },
         {
