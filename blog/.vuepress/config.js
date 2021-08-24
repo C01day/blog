@@ -116,6 +116,24 @@ module.exports = {
         {
           path: "/img/home-background/2.jpg",
         },
+        {
+          path: "/img/in-post/cover/108.jpg",
+        },
+        {
+          path: "/img/in-post/cover/110.jpg",
+        },
+        {
+          path: "/img/in-post/cover/114.jpg",
+        },
+        {
+          path: "/img/in-post/cover/115.jpg",
+        },
+        {
+          path: "/img/in-post/cover/116.jpg",
+        },
+        {
+          path: "/img/in-post/cover/118.jpg",
+        },
       ]
     },
     pages: {
