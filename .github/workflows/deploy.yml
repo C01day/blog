@@ -10,9 +10,11 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-
+    env:
+      TZ: Asia/Shanghai
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v2
         with:
           # “最近更新时间” 等 git 日志相关信息，需要拉取全部提交记录
           fetch-depth: 0
