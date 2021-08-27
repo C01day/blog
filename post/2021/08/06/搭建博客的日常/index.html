@@ -9,7 +9,7 @@
     <meta name="description" content="C01day's blog, powered by VuePress, themed by Gungnir.">
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
     
-    <link rel="preload" href="/assets/css/0.styles.8426d2d9.css" as="style"><link rel="preload" href="/assets/js/app.cb0c5810.js" as="script"><link rel="preload" href="/assets/js/10.9bddb202.js" as="script"><link rel="preload" href="/assets/js/1.e0742fb7.js" as="script"><link rel="preload" href="/assets/js/2.6ad0432e.js" as="script"><link rel="preload" href="/assets/js/25.324e48fc.js" as="script"><link rel="prefetch" href="/assets/js/11.3c28e8f9.js"><link rel="prefetch" href="/assets/js/12.7f344344.js"><link rel="prefetch" href="/assets/js/13.c0cd4f69.js"><link rel="prefetch" href="/assets/js/14.3d078fad.js"><link rel="prefetch" href="/assets/js/15.0d54d96e.js"><link rel="prefetch" href="/assets/js/16.788f36a1.js"><link rel="prefetch" href="/assets/js/17.3208d46a.js"><link rel="prefetch" href="/assets/js/18.ff9892b4.js"><link rel="prefetch" href="/assets/js/19.aad5251f.js"><link rel="prefetch" href="/assets/js/20.80ca238d.js"><link rel="prefetch" href="/assets/js/21.92a14c37.js"><link rel="prefetch" href="/assets/js/22.b20e50a9.js"><link rel="prefetch" href="/assets/js/23.04f466ba.js"><link rel="prefetch" href="/assets/js/24.fb50a2e4.js"><link rel="prefetch" href="/assets/js/26.fe0c2688.js"><link rel="prefetch" href="/assets/js/27.82cf3f9c.js"><link rel="prefetch" href="/assets/js/28.9b5e799e.js"><link rel="prefetch" href="/assets/js/4.c776a6b0.js"><link rel="prefetch" href="/assets/js/5.e5b2250a.js"><link rel="prefetch" href="/assets/js/6.324f7ae0.js"><link rel="prefetch" href="/assets/js/7.6ba19607.js"><link rel="prefetch" href="/assets/js/8.da51cdba.js"><link rel="prefetch" href="/assets/js/9.7ba2a8e8.js">
+    <link rel="preload" href="/assets/css/0.styles.8426d2d9.css" as="style"><link rel="preload" href="/assets/js/app.8ba00370.js" as="script"><link rel="preload" href="/assets/js/10.9bddb202.js" as="script"><link rel="preload" href="/assets/js/1.e0742fb7.js" as="script"><link rel="preload" href="/assets/js/2.6ad0432e.js" as="script"><link rel="preload" href="/assets/js/25.e2baca75.js" as="script"><link rel="prefetch" href="/assets/js/11.3c28e8f9.js"><link rel="prefetch" href="/assets/js/12.7f344344.js"><link rel="prefetch" href="/assets/js/13.c0cd4f69.js"><link rel="prefetch" href="/assets/js/14.3d078fad.js"><link rel="prefetch" href="/assets/js/15.0d54d96e.js"><link rel="prefetch" href="/assets/js/16.788f36a1.js"><link rel="prefetch" href="/assets/js/17.3208d46a.js"><link rel="prefetch" href="/assets/js/18.ff9892b4.js"><link rel="prefetch" href="/assets/js/19.aad5251f.js"><link rel="prefetch" href="/assets/js/20.80ca238d.js"><link rel="prefetch" href="/assets/js/21.92a14c37.js"><link rel="prefetch" href="/assets/js/22.b20e50a9.js"><link rel="prefetch" href="/assets/js/23.04f466ba.js"><link rel="prefetch" href="/assets/js/24.fb50a2e4.js"><link rel="prefetch" href="/assets/js/26.fe0c2688.js"><link rel="prefetch" href="/assets/js/27.82cf3f9c.js"><link rel="prefetch" href="/assets/js/28.9b5e799e.js"><link rel="prefetch" href="/assets/js/4.c776a6b0.js"><link rel="prefetch" href="/assets/js/5.e5b2250a.js"><link rel="prefetch" href="/assets/js/6.324f7ae0.js"><link rel="prefetch" href="/assets/js/7.6ba19607.js"><link rel="prefetch" href="/assets/js/8.da51cdba.js"><link rel="prefetch" href="/assets/js/9.7ba2a8e8.js">
     <link rel="stylesheet" href="/assets/css/0.styles.8426d2d9.css">
   </head>
   <body>
@@ -74,7 +74,8 @@ module<span class="token punctuation">.</span>exports <span class="token operato
 <span class="token key atrule">jobs</span><span class="token punctuation">:</span>
   <span class="token key atrule">build and deploy</span><span class="token punctuation">:</span>
     <span class="token key atrule">runs-on</span><span class="token punctuation">:</span> ubuntu<span class="token punctuation">-</span>latest
-
+    <span class="token key atrule">env</span><span class="token punctuation">:</span>
+      <span class="token key atrule">TZ</span><span class="token punctuation">:</span> Asia/Shanghai
     <span class="token key atrule">steps</span><span class="token punctuation">:</span>
       <span class="token punctuation">-</span> <span class="token key atrule">uses</span><span class="token punctuation">:</span> actions/checkout@v2
         <span class="token key atrule">with</span><span class="token punctuation">:</span>
@@ -117,7 +118,7 @@ module<span class="token punctuation">.</span>exports <span class="token operato
           <span class="token key atrule">BRANCH</span><span class="token punctuation">:</span> gh<span class="token punctuation">-</span>pages
           <span class="token comment"># 部署目录为 VuePress 的输出目录</span>
           <span class="token key atrule">FOLDER</span><span class="token punctuation">:</span> public
-</code></pre></div></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">上次编辑于:</span> <span class="time">2021-08-27 09:37</span></div></footer> <!----> <div class="pager"><a href="/post/2021/08/08/%E5%8D%9A%E5%AE%A2%E7%9A%84%E6%90%AD%E5%BB%BA%E4%B8%8E%E9%83%A8%E7%BD%B2/" class="next">
+</code></pre></div></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">上次编辑于:</span> <span class="time">2021-08-27 17:53</span></div></footer> <!----> <div class="pager"><a href="/post/2021/08/08/%E5%8D%9A%E5%AE%A2%E7%9A%84%E6%90%AD%E5%BB%BA%E4%B8%8E%E9%83%A8%E7%BD%B2/" class="next">
     下一篇<br> <span>
       博客的搭建与部署
     </span></a> <a href="/post/2021/07/31/markdown%E8%AF%AD%E6%B3%95/" class="previous">
@@ -131,6 +132,6 @@ module<span class="token punctuation">.</span>exports <span class="token operato
       Powered by <a href="https://vuepress.vuejs.org" target="_blank">VuePress</a> &
       <a href="https://github.com/Renovamen/vuepress-theme-gungnir" target="_blank">Gungnir</a>
     </span></div></div><div class="global-ui"></div></div>
-    <script src="/assets/js/app.cb0c5810.js" defer></script><script src="/assets/js/10.9bddb202.js" defer></script><script src="/assets/js/1.e0742fb7.js" defer></script><script src="/assets/js/2.6ad0432e.js" defer></script><script src="/assets/js/25.324e48fc.js" defer></script>
+    <script src="/assets/js/app.8ba00370.js" defer></script><script src="/assets/js/10.9bddb202.js" defer></script><script src="/assets/js/1.e0742fb7.js" defer></script><script src="/assets/js/2.6ad0432e.js" defer></script><script src="/assets/js/25.e2baca75.js" defer></script>
   </body>
 </html>
