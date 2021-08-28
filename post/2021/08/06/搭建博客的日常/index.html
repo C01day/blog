@@ -9,7 +9,7 @@
     <meta name="description" content="C01day's blog, powered by VuePress, themed by Gungnir.">
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
     
-    <link rel="preload" href="/assets/css/0.styles.8426d2d9.css" as="style"><link rel="preload" href="/assets/js/app.8ba00370.js" as="script"><link rel="preload" href="/assets/js/10.9bddb202.js" as="script"><link rel="preload" href="/assets/js/1.e0742fb7.js" as="script"><link rel="preload" href="/assets/js/2.6ad0432e.js" as="script"><link rel="preload" href="/assets/js/25.e2baca75.js" as="script"><link rel="prefetch" href="/assets/js/11.3c28e8f9.js"><link rel="prefetch" href="/assets/js/12.7f344344.js"><link rel="prefetch" href="/assets/js/13.c0cd4f69.js"><link rel="prefetch" href="/assets/js/14.3d078fad.js"><link rel="prefetch" href="/assets/js/15.0d54d96e.js"><link rel="prefetch" href="/assets/js/16.788f36a1.js"><link rel="prefetch" href="/assets/js/17.3208d46a.js"><link rel="prefetch" href="/assets/js/18.ff9892b4.js"><link rel="prefetch" href="/assets/js/19.aad5251f.js"><link rel="prefetch" href="/assets/js/20.80ca238d.js"><link rel="prefetch" href="/assets/js/21.92a14c37.js"><link rel="prefetch" href="/assets/js/22.b20e50a9.js"><link rel="prefetch" href="/assets/js/23.04f466ba.js"><link rel="prefetch" href="/assets/js/24.fb50a2e4.js"><link rel="prefetch" href="/assets/js/26.fe0c2688.js"><link rel="prefetch" href="/assets/js/27.82cf3f9c.js"><link rel="prefetch" href="/assets/js/28.9b5e799e.js"><link rel="prefetch" href="/assets/js/4.c776a6b0.js"><link rel="prefetch" href="/assets/js/5.e5b2250a.js"><link rel="prefetch" href="/assets/js/6.324f7ae0.js"><link rel="prefetch" href="/assets/js/7.6ba19607.js"><link rel="prefetch" href="/assets/js/8.da51cdba.js"><link rel="prefetch" href="/assets/js/9.7ba2a8e8.js">
+    <link rel="preload" href="/assets/css/0.styles.8426d2d9.css" as="style"><link rel="preload" href="/assets/js/app.b7e8a019.js" as="script"><link rel="preload" href="/assets/js/10.9bddb202.js" as="script"><link rel="preload" href="/assets/js/1.e0742fb7.js" as="script"><link rel="preload" href="/assets/js/2.6ad0432e.js" as="script"><link rel="preload" href="/assets/js/25.2bea43c8.js" as="script"><link rel="prefetch" href="/assets/js/11.3c28e8f9.js"><link rel="prefetch" href="/assets/js/12.7f344344.js"><link rel="prefetch" href="/assets/js/13.c0cd4f69.js"><link rel="prefetch" href="/assets/js/14.3d078fad.js"><link rel="prefetch" href="/assets/js/15.0d54d96e.js"><link rel="prefetch" href="/assets/js/16.788f36a1.js"><link rel="prefetch" href="/assets/js/17.3208d46a.js"><link rel="prefetch" href="/assets/js/18.ff9892b4.js"><link rel="prefetch" href="/assets/js/19.aad5251f.js"><link rel="prefetch" href="/assets/js/20.80ca238d.js"><link rel="prefetch" href="/assets/js/21.92a14c37.js"><link rel="prefetch" href="/assets/js/22.b20e50a9.js"><link rel="prefetch" href="/assets/js/23.04f466ba.js"><link rel="prefetch" href="/assets/js/24.fb50a2e4.js"><link rel="prefetch" href="/assets/js/26.fe0c2688.js"><link rel="prefetch" href="/assets/js/27.82cf3f9c.js"><link rel="prefetch" href="/assets/js/28.9b5e799e.js"><link rel="prefetch" href="/assets/js/4.c776a6b0.js"><link rel="prefetch" href="/assets/js/5.e5b2250a.js"><link rel="prefetch" href="/assets/js/6.324f7ae0.js"><link rel="prefetch" href="/assets/js/7.6ba19607.js"><link rel="prefetch" href="/assets/js/8.da51cdba.js"><link rel="prefetch" href="/assets/js/9.7ba2a8e8.js">
     <link rel="stylesheet" href="/assets/css/0.styles.8426d2d9.css">
   </head>
   <body>
@@ -61,7 +61,7 @@ module<span class="token punctuation">.</span>exports <span class="token operato
   <span class="token punctuation">]</span>
 <span class="token punctuation">}</span>
 </code></pre></div><p>虽然会显示上次更新于几天前，但不论过多久还是显示同样的内容。</p> <p>源代码的<code>lastUpdated</code>是放在<code>computed</code>里的，据 vue 官网上的解释，<code>Date</code>日期之类的不是响应式依赖，计算属性将不再更新。于是我试着将<code>lastUpdated</code>放在<code>mounted</code>里，发现还是不行。</p> <p>没办法，还是用回<code>moment(timestamp).format(&quot;YYYY-MM-DD HH:mm&quot;);</code>吧🙃</p> <h2 id="配置首页的标签页标题"><a href="#配置首页的标签页标题" class="header-anchor">#</a> 配置首页的标签页标题</h2> <p>标签页标题就是浏览器最上面的文字，在主页的时候显示的是Posts，我想改为Home。询问了<a href="https://zxh.io/" target="_blank" rel="noopener noreferrer">作者大佬</a>后，找到了解决方法：</p> <p>在<code>packages/theme-gungnir/index.js</code>中<code>@vuepress/plugin-blog</code>的如下部分添加<code>title: &quot;Home&quot;</code>便可🤗
-</p><div align="center"><img src="https://i.loli.net/2021/08/09/PUgq8LxjHVlZJ6p.png" alt=""></div><p></p> <h2 id="github-actions-自动部署"><a href="#github-actions-自动部署" class="header-anchor">#</a> Github Actions 自动部署</h2> <p>先试试好不好用~</p> <div class="language-yml extra-class"><pre class="language-yml"><code><span class="token comment"># .github\workflows\deploy.yml</span>
+</p><div align="center"><img src="https://i.loli.net/2021/08/09/PUgq8LxjHVlZJ6p.png" alt=""></div><p></p> <h2 id="github-actions-自动部署"><a href="#github-actions-自动部署" class="header-anchor">#</a> Github Actions 自动部署</h2> <p>心血来潮，先试试好不好用~</p> <p>这段 action 的功能是在我 push 到 main 分支的时候自动 build ，然后将打包后的静态文件上传到 gh-pages 分支上。</p> <p>首先在用户的<code>Settings-&gt;Developer settings</code>中新建一个<code>Personal access tokens</code>，名字叫<code>ACCESS_TOKEN</code>，权限选择<code>repo</code>就行。</p> <p>然后在要自动部署的仓库的<code>Settings-&gt;secrets</code>中新建一个名为<code>ACCESS_TOKEN</code>的<code>secret</code>，然后将之前获得的 TOKEN 复制上去。</p> <div class="language-yml extra-class"><pre class="language-yml"><code><span class="token comment"># .github\workflows\deploy.yml</span>
 <span class="token key atrule">name</span><span class="token punctuation">:</span> build and deploy
 
 <span class="token key atrule">on</span><span class="token punctuation">:</span>
@@ -72,18 +72,19 @@ module<span class="token punctuation">.</span>exports <span class="token operato
   <span class="token key atrule">workflow_dispatch</span><span class="token punctuation">:</span>
 
 <span class="token key atrule">jobs</span><span class="token punctuation">:</span>
-  <span class="token key atrule">build and deploy</span><span class="token punctuation">:</span>
+  <span class="token key atrule">build-and-deploy</span><span class="token punctuation">:</span>
     <span class="token key atrule">runs-on</span><span class="token punctuation">:</span> ubuntu<span class="token punctuation">-</span>latest
     <span class="token key atrule">env</span><span class="token punctuation">:</span>
       <span class="token key atrule">TZ</span><span class="token punctuation">:</span> Asia/Shanghai
     <span class="token key atrule">steps</span><span class="token punctuation">:</span>
-      <span class="token punctuation">-</span> <span class="token key atrule">uses</span><span class="token punctuation">:</span> actions/checkout@v2
+      <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> Checkout
+        <span class="token key atrule">uses</span><span class="token punctuation">:</span> actions/checkout@v2
         <span class="token key atrule">with</span><span class="token punctuation">:</span>
           <span class="token comment"># “最近更新时间” 等 git 日志相关信息，需要拉取全部提交记录</span>
           <span class="token key atrule">fetch-depth</span><span class="token punctuation">:</span> <span class="token number">0</span>
 
       <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> Setup Node.js
-        <span class="token key atrule">uses</span><span class="token punctuation">:</span> actions/setup<span class="token punctuation">-</span>node@v1
+        <span class="token key atrule">uses</span><span class="token punctuation">:</span> actions/setup<span class="token punctuation">-</span>node@v2
         <span class="token key atrule">with</span><span class="token punctuation">:</span>
           <span class="token comment"># 选择要使用的 node 版本</span>
           <span class="token key atrule">node-version</span><span class="token punctuation">:</span> <span class="token string">&quot;14&quot;</span>
@@ -109,16 +110,16 @@ module<span class="token punctuation">.</span>exports <span class="token operato
         <span class="token key atrule">run</span><span class="token punctuation">:</span> yarn build
 
       <span class="token comment"># 查看 workflow 的文档来获取更多信息</span>
-      <span class="token comment"># @see https://github.com/crazy-max/ghaction-github-pages</span>
+      <span class="token comment"># @see https://github.com/JamesIves/github-pages-deploy-action</span>
       <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> Deploy to GitHub Pages
-        <span class="token key atrule">uses</span><span class="token punctuation">:</span> JamesIves/github<span class="token punctuation">-</span>pages<span class="token punctuation">-</span>deploy<span class="token punctuation">-</span>action@3.7.1
+        <span class="token key atrule">uses</span><span class="token punctuation">:</span> JamesIves/github<span class="token punctuation">-</span>pages<span class="token punctuation">-</span>deploy<span class="token punctuation">-</span>action@4.0.0
         <span class="token key atrule">with</span><span class="token punctuation">:</span>
           <span class="token key atrule">ACCESS_TOKEN</span><span class="token punctuation">:</span> $<span class="token punctuation">{</span><span class="token punctuation">{</span> secrets.ACCESS_TOKEN <span class="token punctuation">}</span><span class="token punctuation">}</span>
           <span class="token comment"># 部署到 gh-pages 分支</span>
           <span class="token key atrule">BRANCH</span><span class="token punctuation">:</span> gh<span class="token punctuation">-</span>pages
           <span class="token comment"># 部署目录为 VuePress 的输出目录</span>
           <span class="token key atrule">FOLDER</span><span class="token punctuation">:</span> public
-</code></pre></div></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">上次编辑于:</span> <span class="time">2021-08-27 17:53</span></div></footer> <!----> <div class="pager"><a href="/post/2021/08/08/%E5%8D%9A%E5%AE%A2%E7%9A%84%E6%90%AD%E5%BB%BA%E4%B8%8E%E9%83%A8%E7%BD%B2/" class="next">
+</code></pre></div><div class="custom-block info"><p class="custom-block-title">tip</p> <p>不过测试了一次后发现<code>lastUpdated</code>的时区不对，于是在上述代码的<code>env</code>部分添加了地区。</p></div></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">上次编辑于:</span> <span class="time">2021-08-28 14:56</span></div></footer> <!----> <div class="pager"><a href="/post/2021/08/08/%E5%8D%9A%E5%AE%A2%E7%9A%84%E6%90%AD%E5%BB%BA%E4%B8%8E%E9%83%A8%E7%BD%B2/" class="next">
     下一篇<br> <span>
       博客的搭建与部署
     </span></a> <a href="/post/2021/07/31/markdown%E8%AF%AD%E6%B3%95/" class="previous">
@@ -132,6 +133,6 @@ module<span class="token punctuation">.</span>exports <span class="token operato
       Powered by <a href="https://vuepress.vuejs.org" target="_blank">VuePress</a> &
       <a href="https://github.com/Renovamen/vuepress-theme-gungnir" target="_blank">Gungnir</a>
     </span></div></div><div class="global-ui"></div></div>
-    <script src="/assets/js/app.8ba00370.js" defer></script><script src="/assets/js/10.9bddb202.js" defer></script><script src="/assets/js/1.e0742fb7.js" defer></script><script src="/assets/js/2.6ad0432e.js" defer></script><script src="/assets/js/25.e2baca75.js" defer></script>
+    <script src="/assets/js/app.b7e8a019.js" defer></script><script src="/assets/js/10.9bddb202.js" defer></script><script src="/assets/js/1.e0742fb7.js" defer></script><script src="/assets/js/2.6ad0432e.js" defer></script><script src="/assets/js/25.2bea43c8.js" defer></script>
   </body>
 </html>
