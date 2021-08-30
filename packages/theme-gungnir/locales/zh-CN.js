@@ -16,13 +16,13 @@ export default {
   // post meta
   lastUpdated: "上次编辑于",
   editLinkText: "在 GitHub 上编辑此页",
-  postNext: "下一篇",
-  postPrev: "上一篇",
+  postNext: "Next",
+  postPrev: "Previous",
 
   // home page pager
-  homePrev: "← 较新的文章",
-  homeNext: "较旧的文章 →",
+  homePrev: "Newer Posts",
+  homeNext: "Older Posts",
 
   // 404
-  notFound: "我在哪？我在哪！"
+  notFound: "Page Not Found"
 };
