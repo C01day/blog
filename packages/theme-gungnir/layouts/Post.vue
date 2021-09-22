@@ -194,7 +194,7 @@ export default {
         padding 10px 5px
     .vssue-comment-wrapper
       @extend $wrapper
-      margin-top 10rem
+      margin-top 7rem
       margin-bottom -3rem
 
   .catalog
