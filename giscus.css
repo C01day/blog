@@ -13,7 +13,7 @@
     --color-border-primary: #d0d7de;
     --color-border-secondary: #d8dee4;
     --color-border-tertiary: rgba(175, 184, 193, 0.4);
-    --color-border-info: #0969da;
+    --color-border-info: #d0d7de;
     --color-bg-canvas: #fff;
     --color-bg-canvas-inset: #f6f8fa;
     --color-bg-primary: #fff;
@@ -50,9 +50,9 @@
     --color-btn-primary-border: rgba(27, 31, 36, 0.15);
     --color-btn-primary-shadow: 0 1px 0 rgba(27, 31, 36, 0.1);
     --color-btn-primary-inset-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
-    --color-btn-primary-hover-bg: #2c974b;
+    --color-btn-primary-hover-bg: #377bb5;
     --color-btn-primary-hover-border: rgba(27, 31, 36, 0.15);
-    --color-btn-primary-selected-bg: #298e46;
+    --color-btn-primary-selected-bg: #377bb5;
     --color-btn-primary-selected-shadow: inset 0 1px 0 rgba(0, 45, 17, 0.2);
     --color-btn-primary-disabled-text: rgba(255, 255, 255, 1);
     --color-btn-primary-disabled-bg: #377bb5;
