@@ -15,7 +15,7 @@
     --color-border-tertiary: rgba(175, 184, 193, 0.4);
     --color-border-info: #0969da;
     --color-bg-canvas: #fff;
-    --color-bg-canvas-inset: #f6f8fa;
+    --color-bg-canvas-inset: #ffffff;
     --color-bg-primary: #fff;
     --color-bg-secondary: #f6f8fa;
     --color-bg-tertiary: #ffffff;
@@ -32,7 +32,7 @@
     --color-hidden-text-expander-bg: rgba(175, 184, 193, 0.4);
     --color-label-border: #d0d7de;
     --color-input-bg: #fff;
-    --color-input-contrast-bg: #f6f8fa;
+    --color-input-contrast-bg: #ffffff;
     --color-input-border: #d0d7de;
     --color-diff-blob-num-text: #57606a;
     --color-diff-blob-num-hover-text: #24292f;
