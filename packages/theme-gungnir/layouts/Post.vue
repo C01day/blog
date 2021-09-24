@@ -254,7 +254,7 @@ export default {
         padding 0 2rem
       .vssue-comment-wrapper
         padding 1rem
-        margin-top 13rem
+        margin-top 8rem
         margin-bottom -5rem
     .catalog
       transition(transform .5s)
