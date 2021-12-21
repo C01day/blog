@@ -101,7 +101,7 @@ module.exports = {
       sns: {
         github: "C01day/blog",
         linkedin: "c01day",
-        facebook: "C01day",
+        facebook: "",
         twitter: "",
         zhihu: "C01day",
         email: "ddaweizhou@gmail.com"

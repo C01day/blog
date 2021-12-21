@@ -8,6 +8,10 @@ links:
         url: https://tcqi.github.io/
         img: https://avatars.githubusercontent.com/u/89119174?v=4
         desc: 天成哥永远滴神！
+      - sitename: Lemon Qin
+        url: https://lemon-412.github.io/
+        img: https://avatars.githubusercontent.com/u/57213526?v=4
+        desc: 秦神~
   - title: 学习网站
     items:
       - sitename: KATEX

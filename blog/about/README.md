@@ -9,7 +9,7 @@ cv: /files/cv/brief/cn.pdf
 interests:
   - 魔方
   - Copperplate
-  # - <s>Sleeping and Eating</s>
+  - ~~摸鱼~~
 
 education:
   - degree: 计算机科学与技术,硕士
@@ -23,7 +23,7 @@ education:
 
 ## 絮絮叨叨
 
-- 因为网名就是`天凉好个秋`，所以就简写成`天凉`了，翻译成 Cold Day 🍁，然后挤一挤就变成 C01day 了。很合理，很 s1mple ~
+- 因为网名是`天凉好个秋`，所以就简写成`天凉`了，翻译成 Cold Day 🍁，然后挤一挤就变成 C01day 了。很合理，很 s1mple ~
 <br/><br/>
 
 - 其实我一直以来的梦想就是摸🐟，但好像鱼都被🎣走了
