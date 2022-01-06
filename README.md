@@ -18,4 +18,4 @@ yarn run build  # vuepress build blog
 
 &nbsp;
 
-Welcome to my [blog](https://www.c01day.com),it's powered by [VuePress](https://vuepress.vuejs.org) & [Gungnir](https://github.com/Renovamen/vuepress-theme-gungnir)😇🥰🤗
+**Welcome to my [blog](https://www.c01day.com),it's powered by [VuePress](https://vuepress.vuejs.org) & [Gungnir](https://github.com/Renovamen/vuepress-theme-gungnir)** 😇🥰🤗
