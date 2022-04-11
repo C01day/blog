@@ -43,13 +43,13 @@ module.exports = {
     //   copyright: "Renovamen 2018-2021",
     //   count: 20
     // },
-    comment: {
-      owner: "C01day",
-      repo: "Vssue-comments",
-      clientId: "7519f1d06d54f825191c",
-      clientSecret: "6fbf56328ccc37d6226dc9d0b6e6fdfefb9f3994",
-      // autoCreateIssue: true,
-    },
+    // comment: {
+    //   owner: "C01day",
+    //   repo: "Vssue-comments",
+    //   clientId: "7519f1d06d54f825191c",
+    //   clientSecret: "6fbf56328ccc37d6226dc9d0b6e6fdfefb9f3994",
+    //   // autoCreateIssue: true,
+    // },
     analytics: {
       ga: "UA-204468193-1",
       // ba: "75381d210789d3eaf855fa16246860cc"
