@@ -43,6 +43,7 @@ module.exports = {
     //   copyright: "Renovamen 2018-2021",
     //   count: 20
     // },
+    comment: true,
     // comment: {
     //   owner: "C01day",
     //   repo: "Vssue-comments",
