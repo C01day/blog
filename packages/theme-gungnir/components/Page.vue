@@ -37,6 +37,7 @@
         data-reactions-enabled="1"
         data-emit-metadata="0"
         data-theme="https://c01day.github.io/giscus.css"
+        data-loading="lazy"
         crossorigin="anonymous"
         :key="$route.path"
         async>
