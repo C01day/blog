@@ -38,6 +38,7 @@
         data-emit-metadata="0"
         data-theme="https://c01day.github.io/giscus.css"
         crossorigin="anonymous"
+        :key="$route.path"
         async>
     </script>
     </div>
