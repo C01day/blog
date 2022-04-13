@@ -85,7 +85,7 @@ export default {
   data() {
     return {
       isHasKey: true,
-      theme: document.body.getAttribute("data-theme")
+      theme: ''
     };
   },
 
@@ -144,6 +144,7 @@ export default {
   mounted() {
     this.addCodeBtn();
 
+    this.$data.theme = document.body.getAttribute("data-theme");
     //实时获取data-thme的更改
     var that = this;
     var element = document.body;
