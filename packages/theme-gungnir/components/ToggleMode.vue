@@ -8,19 +8,19 @@
   >
     <v-icon v-if="currentMode === 'light'" name="bi-sun-fill" />
     <v-icon v-else-if="currentMode === 'dark'" name="fa-moon" />
-    <v-icon v-else-if="currentMode === 'auto'" name="fa-magic" />
+    <!-- <v-icon v-else-if="currentMode === 'auto'" name="fa-magic" /> -->
   </a>
 </template>
 
 <script>
-let modeOptions = ["light", "dark", "auto"];
+let modeOptions = ["light", "dark"];
 
 export default {
   name: "UserSettings",
 
   data() {
     return {
-      currentMode: "auto"
+      currentMode: "light"
     };
   },
 
@@ -35,20 +35,19 @@ export default {
   mounted() {
     // get user preference mode
     this.currentMode =
-      localStorage.getItem("mode") || this.$themeConfig.mode || "auto";
+      localStorage.getItem("mode") || this.$themeConfig.mode || "light";
 
     // dark and light autoswitches
     var that = this;
+    this.applyMode(this.currentMode);
     window.matchMedia("(prefers-color-scheme: dark)").addListener(() => {
-      that.$data.currentMode === "auto" &&
-        that.applyMode(that.$data.currentMode);
+      // that.$data.currentMode === "auto" &&
+        that.applyMode("dark");
     });
     window.matchMedia("(prefers-color-scheme: light)").addListener(() => {
-      that.$data.currentMode === "auto" &&
-        that.applyMode(that.$data.currentMode);
+      // that.$data.currentMode === "auto" &&
+        that.applyMode("light");
     });
-
-    this.applyMode(this.currentMode);
   },
 
   methods: {

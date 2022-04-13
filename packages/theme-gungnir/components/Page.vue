@@ -25,23 +25,6 @@
     /> -->
 
     <!-- 重新渲染以改变主题 -->
-    <!-- <div v-if="$themeConfig.comment" class="vssue-comment-wrapper">
-    <script src="https://giscus.app/client.js"
-        data-repo="C01day/Giscus-comments"
-        data-repo-id="R_kgDOGGHh_Q"
-        data-category="Announcements"
-        data-category-id="DIC_kwDOGGHh_c4B_JND"
-        data-mapping="pathname"
-        data-reactions-enabled="1"
-        data-emit-metadata="0"
-        :data-theme="getTheme"
-        data-loading="lazy"
-        crossorigin="anonymous"
-        :key="$route.path+getTheme"
-        async>
-    </script>
-    </div> -->
-
     <div v-if="$themeConfig.comment" class="vssue-comment-wrapper">
     <script src="https://giscus.app/client.js"
         data-repo="C01day/Giscus-comments"
@@ -51,13 +34,14 @@
         data-mapping="pathname"
         data-reactions-enabled="1"
         data-emit-metadata="0"
-        data-theme="https://c01day.github.io/giscus.css"
+        :key="$route.path+getTheme"
+        :data-theme="getTheme"
         data-loading="lazy"
         crossorigin="anonymous"
-        :key="$route.path+'light or dark'"
         async>
     </script>
     </div>
+
   </main>
 </template>
 
@@ -91,8 +75,8 @@ export default {
 
   computed: {
     getTheme() {
-      if(this.$data.theme == 'light') return "https://c01day.github.io/giscus.css";
-      else if (this.$data.theme == 'dark') return "https://giscus.app/themes/dark.css";
+      if (this.$data.theme === 'dark') return "https://c01day.github.io/giscus-dark.css";
+      else return "https://c01day.github.io/giscus-light.css";
     },
     shouldShowComments() {
       const { isShowComments } = this.$frontmatter;
@@ -144,18 +128,15 @@ export default {
   mounted() {
     this.addCodeBtn();
 
-    this.$data.theme = document.body.getAttribute("data-theme");
-    //实时获取data-thme的更改
+    //监听data-theme的更改
     var that = this;
     var element = document.body;
+    this.$data.theme = element.getAttribute("data-theme");
     var MutationObserver = window.MutationObserver || window.WebKitMutationObserver || window.MozMutationObserver;
     var observer = new MutationObserver(function(mutations) {
       mutations.forEach(function(mutation) {
         if (mutation.type == "attributes") {
-          // that.$data.theme = element.getAttribute("data-theme");
-          that.$nextTick(() =>{
-            that.$data.theme = element.getAttribute("data-theme");
-          });
+          that.$data.theme = element.getAttribute("data-theme");
         }
       });
     });
