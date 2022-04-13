@@ -16,17 +16,32 @@
       v-if="$page.id == 'posts' && getPostIndex != -1"
       :data="getPostPager"
     />
-    <!--
-      Use prop `key` to update vssue when navigating directly from one
-      <Page> to another.
-      See here: https://github.com/meteorlxy/vssue/issues/87
-    -->
+    
     <!-- <Vssue
       v-if="$themeConfig.comment"
       :key="$route.path"
       class="vssue-comment-wrapper"
       :title="$page.title + ' - ' + $site.title"
     /> -->
+
+    <!-- 重新渲染以改变主题 -->
+    <!-- <div v-if="$themeConfig.comment" class="vssue-comment-wrapper">
+    <script src="https://giscus.app/client.js"
+        data-repo="C01day/Giscus-comments"
+        data-repo-id="R_kgDOGGHh_Q"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOGGHh_c4B_JND"
+        data-mapping="pathname"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        :data-theme="getTheme"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        :key="$route.path+getTheme"
+        async>
+    </script>
+    </div> -->
+
     <div v-if="$themeConfig.comment" class="vssue-comment-wrapper">
     <script src="https://giscus.app/client.js"
         data-repo="C01day/Giscus-comments"
@@ -39,7 +54,7 @@
         data-theme="https://c01day.github.io/giscus.css"
         data-loading="lazy"
         crossorigin="anonymous"
-        :key="$route.path"
+        :key="$route.path+'light or dark'"
         async>
     </script>
     </div>
@@ -69,11 +84,16 @@ export default {
 
   data() {
     return {
-      isHasKey: true
+      isHasKey: true,
+      theme: document.body.getAttribute("data-theme")
     };
   },
 
   computed: {
+    getTheme() {
+      if(this.$data.theme == 'light') return "https://c01day.github.io/giscus.css";
+      else if (this.$data.theme == 'dark') return "https://giscus.app/themes/dark.css";
+    },
     shouldShowComments() {
       const { isShowComments } = this.$frontmatter;
       const { showComment } = this.$themeConfig.valineConfig || {
@@ -123,6 +143,27 @@ export default {
 
   mounted() {
     this.addCodeBtn();
+
+    //实时获取data-thme的更改
+    var that = this;
+    var element = document.body;
+    var MutationObserver = window.MutationObserver || window.WebKitMutationObserver || window.MozMutationObserver;
+    var observer = new MutationObserver(function(mutations) {
+      mutations.forEach(function(mutation) {
+        if (mutation.type == "attributes") {
+          // that.$data.theme = element.getAttribute("data-theme");
+          that.$nextTick(() =>{
+            that.$data.theme = element.getAttribute("data-theme");
+          });
+        }
+      });
+    });
+
+    observer.observe(element, {
+      attributes: true,
+      attributeFilter: ['data-theme']
+    });
+
   },
   methods: {
     addCodeBtn() {
