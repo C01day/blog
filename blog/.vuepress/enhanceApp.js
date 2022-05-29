@@ -25,6 +25,15 @@ import {
   RiSpaceShipFill,
   // RiBook2Fill,//文档
   BiJournal,
+
+  MdSkippreviousRound,
+  MdSkipnextRound,
+  MdPlayarrowRound,
+  MdPauseRound,
+  BiSkipStartFill,
+  BiSkipEndFill,
+  BiPlayCircleFill,
+  BiPauseCircleFill,
 } from "oh-vue-icons/icons";
 
 OhVueIcon.add(
@@ -49,13 +58,22 @@ OhVueIcon.add(
   RiSpaceShipFill,
   // RiBook2Fill,
   BiJournal,
+
+  MdSkippreviousRound,
+  MdSkipnextRound,
+  MdPlayarrowRound,
+  MdPauseRound,
+  BiSkipStartFill,
+  BiSkipEndFill,
+  BiPlayCircleFill,
+  BiPauseCircleFill,
 );
 
 export default ({
   Vue, // VuePress 正在使用的 Vue 构造函数
 }) => {
 
-  Vue.use(ElementUI)
-  
+  Vue.use(ElementUI);
+  Vue.component("v-icon", OhVueIcon);
   // ...做一些其他的应用级别的优化
 }

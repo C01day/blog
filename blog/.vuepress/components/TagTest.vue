@@ -68,7 +68,7 @@
   }
 </script>
 
-<style>
+<style scoped>
   .el-tag {
     margin-left: 10px;
     margin-top: 10px;

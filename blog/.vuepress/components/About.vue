@@ -250,7 +250,7 @@ export default {
       font-weight 700
       text-align center
     p
-      font-size 18px !important
+      font-size 18px
       line-height 28px !important
     a.header-anchor
       display none
