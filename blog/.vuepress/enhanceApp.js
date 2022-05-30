@@ -33,7 +33,7 @@ import {
   BiSkipStartFill,
   BiSkipEndFill,
   BiPlayCircleFill,
-  BiPauseCircleFill,
+  HiSolidPause,
 } from "oh-vue-icons/icons";
 
 OhVueIcon.add(
@@ -66,7 +66,7 @@ OhVueIcon.add(
   BiSkipStartFill,
   BiSkipEndFill,
   BiPlayCircleFill,
-  BiPauseCircleFill,
+  HiSolidPause,
 );
 
 export default ({

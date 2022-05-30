@@ -29,25 +29,33 @@
 			<transition name="slide-fade" mode="out-in">
 				<p class="artist" :key="currentSong">{{ musicPlaylist[currentSong].artist }}</p>
             </transition>
+			<transition name="slide-fade" mode="out-in" type='transition'>
+				<div class="page-container" :key="currentSong">
+					<div :class="['wave-container', currentlyPlaying ? '' : 'paused']">
+						<div v-for="index in 20" :key="index" class="wave-bar"></div>
+					</div>
+				</div>
+			</transition>
 		</div>
 
 		<div class="playerButtons">
 			<a class="button" :class="{'isDisabled':(currentSong==0)}" v-on:click="prevSong()" title="Previous Song"><v-icon name="bi-skip-start-fill" class="icon" scale="2" /></a>
 			<a class="button play" v-on:click="playAudio()" title="Play/Pause Song">
 				<transition name="slide-fade" mode="out-in">
-                    <v-icon :name="currentlyStopped ? 'bi-play-circle-fill' : (currentlyPlaying ? 'bi-pause-circle-fill' : 'bi-play-circle-fill')" :key="1" class="icon" scale="3" />
+                    <v-icon :name="currentlyStopped ? 'bi-play-circle-fill' : (currentlyPlaying ? 'hi-solid-pause' : 'bi-play-circle-fill')" :key="1" class="icon" scale="2" fill="red"/>
 				</transition>
 			</a>
 			<a class="button" :class="{'isDisabled':(currentSong==musicPlaylist.length-1)}" v-on:click="nextSong()" title="Next Song"><v-icon name="bi-skip-end-fill" class="icon" scale="2" /></a>
 		</div>
+		<div class="timeAndProgress">
+			<div class="currentTimeContainer" style="text-align:center">
+				<span class="currentTime">{{ currentTime | fancyTimeFormat }}</span>
+				<span class="totalTime"> {{ trackDuration | fancyTimeFormat }}</span>
+			</div>
 
-		<div class="currentTimeContainer" style="text-align:center">
-			<span class="currentTime">{{ currentTime | fancyTimeFormat }}</span>
-			<span class="totalTime"> {{ trackDuration | fancyTimeFormat }}</span>
-		</div>
-
-		<div class="currentProgressBar" ref="progress" @click="clickProgress">
-			<div class="currentProgress" :style="{ width: currentProgressBar + '%' }"></div>
+			<div class="currentProgressBar" ref="progress" @click="clickProgress">
+				<div class="currentProgress" :style="{ width: currentProgressBar + '%' }"></div>
+			</div>
 		</div>
 	</div>
 
@@ -59,6 +67,7 @@ export default {
 	data() {
         return {
             audio: "",
+			audioFile: "",
             imgLoaded: false,
             currentlyPlaying: false,
             currentlyStopped: false,
@@ -68,7 +77,6 @@ export default {
             currentProgressBar: 0,
             isPlaylistActive: false,
             currentSong: 0,
-            debug: false,
             musicPlaylist: [
                 {
                     title: "Radiant",
@@ -88,9 +96,7 @@ export default {
                     url: "http://music.163.com/song/media/outer/url?id=1488275299.mp3",
                     image: "https://web.hycdn.cn/siren/pic/20210322/430cb5399e272d97779cf5f13681628f.jpg"
                 },
-                
             ],
-            audioFile: ""
         };
 	},
 	mounted: function() {
@@ -193,10 +199,6 @@ export default {
 		pausedMusic: function() {
 			clearTimeout(this.checkingCurrentPositionInTrack);
 		},
-		toggleDebug: function(){
-			this.debug=!this.debug;
-			document.body.classList.toggle('debug');
-		},
 		clickProgress: function(event){
 			this.stopAudio();
 			this.updateBar(event.pageX);
@@ -240,8 +242,6 @@ export default {
 @font-face
 	font-family Geometos
 	src url(../styles/Geometos.woff)
-.debug main * 
-	outline solid 0.25rem rgba(255, 0, 0, 0.25)
 * 
 	box-sizing border-box
 .animated 
@@ -328,9 +328,6 @@ export default {
 			&.isActive 
 				border-left-color black
 				padding-left 1rem
-		.debugToggle 
-			cursor pointer
-			color red
 	.audioPlayerUI 
 		margin-top 1.5rem
 		will-change transform, filter
@@ -353,6 +350,43 @@ export default {
 					font-weight none
 					color rgba(0, 0, 0, 0.75)
 					transition-delay 100ms
+			.page-container
+				display none
+				margin 0.2rem 0
+				position relative
+				background-color #FFF
+			.wave-container
+				position relative
+				.wave-bar
+					display inline-block
+					width 10px
+					height 50px
+					margin auto 0.07rem
+					background-color #000000
+					animation beat1 1s infinite
+					transform-origin 0 100%
+					transform scaleY(0.1)
+					&:nth-child(2n) 
+						animation-name beat2
+						animation-delay 0.2s
+						background-color #EEE
+					&:nth-child(3n) 
+						animation-name beat3
+						animation-delay 0.5s
+						animation-duration 0.5s
+						background-color #CCC
+					&:nth-child(4n) 
+						animation-name beat2
+						animation-delay 0.4s
+						animation-duration 0.8s
+					&:nth-child(5n) 
+						animation-delay 0.6s
+					&:nth-child(6n) 
+						animation-delay 0.2s
+						background-color #DDD
+				&.paused
+					.wave-bar
+						animation-play-state paused
 		.albumImage 
 			width 17rem
 			height 17rem
@@ -427,7 +461,7 @@ export default {
 			.currentProgress 
 				background-color rgba(0, 0, 0, 0.75)
 				width 0px
-				height 1px
+				height 2px
 				transition 100ms
 .audioPlayer .audioPlayerUI .currentTimeContainer .currentTime, .audioPlayer .audioPlayerUI .currentTimeContainer .totalTime 
 	font-size 0.8rem
@@ -475,4 +509,53 @@ body
 			color rgba(255, 255, 255, 1) !important
 		&:visited 
 			color rgba(255, 255, 255, 0.5)
+
+@keyframes beat1
+	0% 
+		transform scaleY(0)
+	50%
+		transform scaleY(0.7)
+	100%
+		transform scaleY(0)
+
+
+@keyframes beat2
+	0%
+		transform scaleY(0)
+	50%
+		transform scaleY(0.5)
+	100% 
+		transform scaleY(0)
+
+@keyframes beat3
+	0%
+		transform scaleY(0)
+	50% 
+		transform scaleY(0.3)
+	100% 
+		transform scaleY(0)
+
+@media (min-width: 719px)
+	.audioPlayerUI
+		display grid
+		grid-template-columns 1fr 1fr
+		grid-template-areas "a b" "c d"
+		.albumDetails 
+			text-align left !important
+			margin 0 0 1.5rem 3.6rem !important
+			.page-container
+				display block !important
+		.albumImage 
+			width 17rem
+			height 17rem
+			overflow hidden
+			margin 0 auto
+		.playerButtons
+			width 18rem
+			position relative
+			margin 0 0.7rem !important
+			text-align center
+		.timeAndProgress
+			grid-area c
+			margin auto 0.2rem
 </style>
