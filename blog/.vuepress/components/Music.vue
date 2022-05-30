@@ -243,7 +243,7 @@ export default {
 			var progress = this.$refs.progress;
 			var maxduration = this.audio.duration;
 			var position = x - progress.getBoundingClientRect().left;
-			let percentage = (100 * position) / progress.offsetWidth;
+			var percentage = (100 * position) / progress.offsetWidth;
       		if (percentage > 100) {
         		percentage = 100;
       		}
@@ -336,7 +336,7 @@ export default {
 	.audioPlayerList 
 		color rgba(0, 0, 0, 0.75)
 		width 17rem
-		height 100%
+		height 90%
 		transition 0.5s
 		transform translateX(-200%)
 		position absolute
