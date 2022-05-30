@@ -398,19 +398,19 @@ export default {
 					width 10px
 					height 50px
 					margin auto 0.07rem
-					background-color #000000
+					background-color #000
 					animation beat1 1s infinite
 					transform-origin 0 100%
 					transform scaleY(0.1)
 					&:nth-child(2n) 
 						animation-name beat2
 						animation-delay 0.2s
-						background-color #EEE
+						background-color #FF0000
 					&:nth-child(3n) 
 						animation-name beat3
 						animation-delay 0.5s
 						animation-duration 0.5s
-						background-color #CCC
+						background-color #BBB
 					&:nth-child(4n) 
 						animation-name beat2
 						animation-delay 0.4s
@@ -433,7 +433,7 @@ export default {
 				width 17rem
 				height 17rem
 				border-radius 50%
-				background #e6e5e6
+				background rgba(0, 0, 0, 0.2)
 				display flex
 				justify-content center
 				align-items center
@@ -545,6 +545,12 @@ body
 			color rgba(255, 255, 255, 1) !important
 		&:visited 
 			color rgba(255, 255, 255, 0.5)
+
+@keyframes rotate 
+	from
+		transform rotate(0deg)
+	to
+		transform rotate(359deg)
 
 @keyframes beat1
 	0% 
