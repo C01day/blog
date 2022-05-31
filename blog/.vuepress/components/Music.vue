@@ -79,59 +79,107 @@ export default {
             currentSong: 0,
             musicPlaylist: [
 				{
-                    title: "Eternal Flame",
-                    artist: "塞壬唱片-MSR",
-                    url: "http://music.163.com/song/media/outer/url?id=1927441611.mp3",
-                    image: "https://web.hycdn.cn/siren/pic/20220314/a79347b6d2e3a57874b552699ce9ee2c.jpg"
-                },
-                {
-                    title: "Radiant",
-                    artist: "塞壬唱片-MSR",
-                    url: "http://music.163.com/song/media/outer/url?id=1890402858.mp3",
-                    image: "https://web.hycdn.cn/siren/pic/20211101/733831c7d034b83dc78f783f8748cc65.jpg"
-                },
+					title: "Bluish Light",
+					artist: "塞壬唱片-MSR",
+					url: "http://music.163.com/song/media/outer/url?id=1941658812.mp3",
+					image: "https://web.hycdn.cn/siren/pic/20220503/6fbb2ddca4efb6bb4ff4ead791fb447e.jpg"
+				},
 				{
-                    title: "Immutable",
-                    artist: "塞壬唱片-MSR",
-                    url: "http://music.163.com/song/media/outer/url?id=1840976599.mp3",
-                    image: "https://web.hycdn.cn/siren/pic/20210501/01bdad2a0a6876eaee3c23bf0812a73a.png"
-                },
+					title: "Rapier",
+					artist: "塞壬唱片-MSR",
+					url: "http://music.163.com/song/media/outer/url?id=1941656969.mp3",
+					image: "https://web.hycdn.cn/siren/pic/20220502/b08a1ada5fa2a6937ae6c1208a40cb93.jpg"
+				},
 				{
-                    title: "Stay Gold",
-                    artist: "塞壬唱片-MSR",
-                    url: "http://music.163.com/song/media/outer/url?id=1488275299.mp3",
-                    image: "https://web.hycdn.cn/siren/pic/20210322/430cb5399e272d97779cf5f13681628f.jpg"
-                },
+					title: "March On!",
+					artist: "塞壬唱片-MSR",
+					url: "http://music.163.com/song/media/outer/url?id=1936324213.mp3",
+					image: "https://web.hycdn.cn/siren/pic/20220413/784addeeb3f6bd9cd001e3021f3483da.jpg"
+				},
 				{
-                    title: "Lullabye",
-                    artist: "塞壬唱片-MSR",
-                    url: "http://music.163.com/song/media/outer/url?id=1491503292.mp3",
-                    image: "https://web.hycdn.cn/siren/pic/20210322/5fb9a7a5d2045c5c6a16f2c4ed8e08f4.jpg"
-                },
+					title: "Eternal Flame",
+					artist: "塞壬唱片-MSR",
+					url: "http://music.163.com/song/media/outer/url?id=1927441611.mp3",
+					image: "https://web.hycdn.cn/siren/pic/20220314/a79347b6d2e3a57874b552699ce9ee2c.jpg"
+				},
 				{
-                    title: "Alive",
-                    artist: "塞壬唱片-MSR",
-                    url: "http://music.163.com/song/media/outer/url?id=1473615924.mp3",
-                    image: "https://web.hycdn.cn/siren/pic/20210322/7d9ab6167720f8f4b982c83fbe89ce0b.jpg"
-                },
+					title: "Radiant",
+					artist: "塞壬唱片-MSR",
+					url: "http://music.163.com/song/media/outer/url?id=1890402858.mp3",
+					image: "https://web.hycdn.cn/siren/pic/20211101/733831c7d034b83dc78f783f8748cc65.jpg"
+				},
 				{
-                    title: "Evolutionary Mechanization",
-                    artist: "塞壬唱片-MSR",
-                    url: "http://music.163.com/song/media/outer/url?id=1473615377.mp3",
-                    image: "https://web.hycdn.cn/siren/pic/20210322/80c0cbb9bec652d21e939586e19aa9ed.jpg"
-                },
+					title: "Towards Her Light",
+					artist: "塞壬唱片-MSR",
+					url: "http://music.163.com/song/media/outer/url?id=1876956006.mp3",
+					image: "https://web.hycdn.cn/siren/pic/20210916/113f508e9ca2f66642cbb85e7a4699be.jpg"
+				},
 				{
-                    title: "独行长路",
-                    artist: "塞壬唱片-MSR",
-                    url: "http://music.163.com/song/media/outer/url?id=1427681638.mp3",
-                    image: "https://web.hycdn.cn/siren/pic/20210727/d01c9b65184c11ed6fe7b1019a023b16.jpg"
-                },
+					title: "Immutable",
+					artist: "塞壬唱片-MSR",
+					url: "http://music.163.com/song/media/outer/url?id=1840976599.mp3",
+					image: "https://web.hycdn.cn/siren/pic/20210501/01bdad2a0a6876eaee3c23bf0812a73a.png"
+				},
 				{
-                    title: "Speed of Light",
-                    artist: "塞壬唱片-MSR",
-                    url: "http://music.163.com/song/media/outer/url?id=1403774122.mp3",
-                    image: "https://web.hycdn.cn/siren/pic/20210322/56cbcd1d0093d8ee8ee22bf6d68ab4a6.jpg"
-                }
+					title: "Stay Gold",
+					artist: "塞壬唱片-MSR",
+					url: "http://music.163.com/song/media/outer/url?id=1488275299.mp3",
+					image: "https://web.hycdn.cn/siren/pic/20210322/430cb5399e272d97779cf5f13681628f.jpg"
+				},
+				{
+					title: "Lullabye",
+					artist: "塞壬唱片-MSR",
+					url: "http://music.163.com/song/media/outer/url?id=1491503292.mp3",
+					image: "https://web.hycdn.cn/siren/pic/20210322/5fb9a7a5d2045c5c6a16f2c4ed8e08f4.jpg"
+				},
+				{
+					title: "Alive",
+					artist: "塞壬唱片-MSR",
+					url: "http://music.163.com/song/media/outer/url?id=1473615924.mp3",
+					image: "https://web.hycdn.cn/siren/pic/20210322/7d9ab6167720f8f4b982c83fbe89ce0b.jpg"
+				},
+				{
+					title: "Evolutionary Mechanization",
+					artist: "塞壬唱片-MSR",
+					url: "http://music.163.com/song/media/outer/url?id=1473615377.mp3",
+					image: "https://web.hycdn.cn/siren/pic/20210322/80c0cbb9bec652d21e939586e19aa9ed.jpg"
+				},
+				{
+					title: "Everything's Alright",
+					artist: "塞壬唱片-MSR",
+					url: "http://music.163.com/song/media/outer/url?id=1460626792.mp3",
+					image: "https://web.hycdn.cn/siren/pic/20210322/fe18ca43cbf7e7fc3541081d7a62ccef.jpg"
+				},
+				{
+					title: "Requiem",
+					artist: "塞壬唱片-MSR",
+					url: "http://music.163.com/song/media/outer/url?id=1444493780.mp3",
+					image: "https://web.hycdn.cn/siren/pic/20210322/14db9942c28a5abba48b9dfe2d99e39a.jpg"
+				},
+				{
+					title: "Renegade",
+					artist: "塞壬唱片-MSR",
+					url: "http://music.163.com/song/media/outer/url?id=1444493657.mp3",
+					image: "https://web.hycdn.cn/siren/pic/20210322/40a13076601806e37c5394049cebc5b1.jpg"
+				},
+				{
+					title: "故乡的风",
+					artist: "塞壬唱片-MSR",
+					url: "http://music.163.com/song/media/outer/url?id=1431593851.mp3",
+					image: "https://web.hycdn.cn/siren/pic/20210322/c755e05031749ec0d7422078ae3189e7.jpg"
+				},
+				{
+					title: "独行长路",
+					artist: "塞壬唱片-MSR",
+					url: "http://music.163.com/song/media/outer/url?id=1427681638.mp3",
+					image: "https://web.hycdn.cn/siren/pic/20210727/d01c9b65184c11ed6fe7b1019a023b16.jpg"
+				},
+				{
+					title: "Speed of Light",
+					artist: "塞壬唱片-MSR",
+					url: "http://music.163.com/song/media/outer/url?id=1403774122.mp3",
+					image: "https://web.hycdn.cn/siren/pic/20210322/56cbcd1d0093d8ee8ee22bf6d68ab4a6.jpg"
+				}
             ],
         };
 	},
