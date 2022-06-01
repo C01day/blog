@@ -1,7 +1,4 @@
 <template>
-		  <span></span>
-		  <span></span>
-		  <span></span>
 <div class="audioPlayer">
 	<a class="nav-icon" @click="isPlaylistActive=!isPlaylistActive" :class="{'isActive': isPlaylistActive}" title="Music List">
 			<span></span>
@@ -16,21 +13,22 @@
 	</div>
 	<div class="audioPlayerUI" :class="{'isDisabled': isPlaylistActive}">
 		<div class="albumImage">
+			<transition name="fade" mode="out-in" type='transition' appear>
 				<div :class="['disc-back', currentlyPlaying ? '' : 'paused']" :key="currentSong">
 					<img @load="onImageLoaded()" :src="$withBase('/img/disc.png')" ondragstart="return false;" class="disc">
 					<img @load="onImageLoaded()" :src="musicPlaylist[currentSong].image" ondragstart="return false;" class="poster">
 				</div>
 			</transition>
-			<div class="loader" :key="currentSong">Loading...</div>
+			<!-- <div class="loader" :key="currentSong">Loading...</div> -->
 		</div>
 		<div class="albumDetails">
-			<transition name="slide-fade" mode="out-in">
+			<transition name="slide-fade" mode="out-in" appear>
 				<p class="title" :key="currentSong">{{ musicPlaylist[currentSong].title }}</p>
 			</transition>
-			<transition name="slide-fade" mode="out-in">
+			<transition name="slide-fade" mode="out-in" appear>
 				<p class="artist" :key="currentSong">{{ musicPlaylist[currentSong].artist }}</p>
-            </transition>
-			<transition name="slide-fade" mode="out-in" type='transition'>
+			</transition>
+			<transition name="slide-fade" mode="out-in" type='transition' appear>
 				<div class="page-container" :key="currentSong">
 					<div :class="['wave-container', currentlyPlaying ? '' : 'paused']">
 						<div v-for="index in 20" :key="index" class="wave-bar"></div>
