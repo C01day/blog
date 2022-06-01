@@ -1,20 +1,21 @@
 <template>
-<main class="audioPlayer" id="app">
-	<a class="nav-icon" v-on:click="isPlaylistActive=!isPlaylistActive" :class="{'isActive': isPlaylistActive}" title="Music List">
 		  <span></span>
 		  <span></span>
 		  <span></span>
+<div class="audioPlayer">
+	<a class="nav-icon" @click="isPlaylistActive=!isPlaylistActive" :class="{'isActive': isPlaylistActive}" title="Music List">
+			<span></span>
+			<span></span>
+			<span></span>
 	</a>
 	<div class="audioPlayerList" :class="{'isActive': isPlaylistActive}">
-		<div class="item" v-for="(item,index) in musicPlaylist" v-bind:class="{ 'isActive':isCurrentSong(index) }" v-on:click="changeSong(index),isPlaylistActive=!isPlaylistActive" :key="index">
+		<div class="item" v-for="(item,index) in musicPlaylist" :class="{ 'isActive':isCurrentSong(index) }" @click="changeSong(index),isPlaylistActive=!isPlaylistActive" :key="index">
 			<p class="title">{{ item.title }}</p>
 			<p class="artist">{{ item.artist }}</p>
 		</div>
 	</div>
 	<div class="audioPlayerUI" :class="{'isDisabled': isPlaylistActive}">
 		<div class="albumImage">
-			<!-- <transition name="ballmove" enter-active-class="animated zoomIn" leave-active-class="animated fadeOutDown" mode="out-in"> -->
-			<transition name="fade" mode="out-in" type='transition'>
 				<div :class="['disc-back', currentlyPlaying ? '' : 'paused']" :key="currentSong">
 					<img @load="onImageLoaded()" :src="$withBase('/img/disc.png')" ondragstart="return false;" class="disc">
 					<img @load="onImageLoaded()" :src="musicPlaylist[currentSong].image" ondragstart="return false;" class="poster">
@@ -39,16 +40,20 @@
 		</div>
 
 		<div class="playerButtons">
-			<a class="button" :class="{'isDisabled':(currentSong==0)}" v-on:click="prevSong()" title="Previous Song"><v-icon name="bi-skip-start-fill" class="icon" scale="2" /></a>
-			<a class="button play" v-on:click="playAudio()" title="Play/Pause Song">
-				<transition name="slide-fade" mode="out-in">
-                    <v-icon :name="currentlyStopped ? 'bi-play-circle-fill' : (currentlyPlaying ? 'hi-solid-pause' : 'bi-play-circle-fill')" :key="1" class="icon" scale="2" fill="red"/>
-				</transition>
-			</a>
-			<a class="button" :class="{'isDisabled':(currentSong==musicPlaylist.length-1)}" v-on:click="nextSong()" title="Next Song"><v-icon name="bi-skip-end-fill" class="icon" scale="2" /></a>
+			<a class="button" @click="prevSong()" title="Previous Song"><v-icon name="bi-skip-start-fill" class="icon" scale="2" /></a>
+			<transition name="fade" mode="out-in" appear>
+				<a class="button play" @click="playPauseAudio()" title="Play/Pause Song" :key="currentSong + currentlyPlaying">
+					<v-icon :name="currentlyPlaying ? 'hi-solid-pause' : 'bi-play-circle-fill' " :key="1" class="icon" scale="2" fill="red"/>
+				</a>
+			</transition>
+			<a class="button" @click="nextSong()" title="Next Song"><v-icon name="bi-skip-end-fill" class="icon" scale="2" /></a>
+			<transition name="mode-slide-fade" mode="out-in">
+				<a class="button" id="mode" @click="nextMode()" :title="Mode[modeIndex].title" :key="modeIndex"><v-icon :name="Mode[modeIndex].icon" class="icon" scale="1.2" /></a>
+			</transition>
 		</div>
+
 		<div class="timeAndProgress">
-			<div class="currentTimeContainer" style="text-align:center">
+			<div class="currentTimeContainer">
 				<span class="currentTime">{{ currentTime | fancyTimeFormat }}</span>
 				<span class="totalTime"> {{ trackDuration | fancyTimeFormat }}</span>
 			</div>
@@ -58,133 +63,146 @@
 			</div>
 		</div>
 	</div>
-
-</main>
+</div>
 </template>
 
 <script>
 export default {
 	data() {
-        return {
-            audio: "",
-			audioFile: "",
-            imgLoaded: false,
-            currentlyPlaying: false,
-            currentlyStopped: false,
-            currentTime: 0,
-            checkingCurrentPositionInTrack: "",
-            trackDuration: 0,
-            currentProgressBar: 0,
-            isPlaylistActive: false,
-            currentSong: 0,
-            musicPlaylist: [
-				{
-					title: "Bluish Light",
-					artist: "塞壬唱片-MSR",
-					url: "http://music.163.com/song/media/outer/url?id=1941658812.mp3",
-					image: "https://web.hycdn.cn/siren/pic/20220503/6fbb2ddca4efb6bb4ff4ead791fb447e.jpg"
-				},
-				{
-					title: "Rapier",
-					artist: "塞壬唱片-MSR",
-					url: "http://music.163.com/song/media/outer/url?id=1941656969.mp3",
-					image: "https://web.hycdn.cn/siren/pic/20220502/b08a1ada5fa2a6937ae6c1208a40cb93.jpg"
-				},
-				{
-					title: "March On!",
-					artist: "塞壬唱片-MSR",
-					url: "http://music.163.com/song/media/outer/url?id=1936324213.mp3",
-					image: "https://web.hycdn.cn/siren/pic/20220413/784addeeb3f6bd9cd001e3021f3483da.jpg"
-				},
-				{
-					title: "Eternal Flame",
-					artist: "塞壬唱片-MSR",
-					url: "http://music.163.com/song/media/outer/url?id=1927441611.mp3",
-					image: "https://web.hycdn.cn/siren/pic/20220314/a79347b6d2e3a57874b552699ce9ee2c.jpg"
-				},
-				{
-					title: "Radiant",
-					artist: "塞壬唱片-MSR",
-					url: "http://music.163.com/song/media/outer/url?id=1890402858.mp3",
-					image: "https://web.hycdn.cn/siren/pic/20211101/733831c7d034b83dc78f783f8748cc65.jpg"
-				},
-				{
-					title: "Towards Her Light",
-					artist: "塞壬唱片-MSR",
-					url: "http://music.163.com/song/media/outer/url?id=1876956006.mp3",
-					image: "https://web.hycdn.cn/siren/pic/20210916/113f508e9ca2f66642cbb85e7a4699be.jpg"
-				},
-				{
-					title: "Immutable",
-					artist: "塞壬唱片-MSR",
-					url: "http://music.163.com/song/media/outer/url?id=1840976599.mp3",
-					image: "https://web.hycdn.cn/siren/pic/20210501/01bdad2a0a6876eaee3c23bf0812a73a.png"
-				},
-				{
-					title: "Stay Gold",
-					artist: "塞壬唱片-MSR",
-					url: "http://music.163.com/song/media/outer/url?id=1488275299.mp3",
-					image: "https://web.hycdn.cn/siren/pic/20210322/430cb5399e272d97779cf5f13681628f.jpg"
-				},
-				{
-					title: "Lullabye",
-					artist: "塞壬唱片-MSR",
-					url: "http://music.163.com/song/media/outer/url?id=1491503292.mp3",
-					image: "https://web.hycdn.cn/siren/pic/20210322/5fb9a7a5d2045c5c6a16f2c4ed8e08f4.jpg"
-				},
-				{
-					title: "Alive",
-					artist: "塞壬唱片-MSR",
-					url: "http://music.163.com/song/media/outer/url?id=1473615924.mp3",
-					image: "https://web.hycdn.cn/siren/pic/20210322/7d9ab6167720f8f4b982c83fbe89ce0b.jpg"
-				},
-				{
-					title: "Evolutionary Mechanization",
-					artist: "塞壬唱片-MSR",
-					url: "http://music.163.com/song/media/outer/url?id=1473615377.mp3",
-					image: "https://web.hycdn.cn/siren/pic/20210322/80c0cbb9bec652d21e939586e19aa9ed.jpg"
-				},
-				{
-					title: "Everything's Alright",
-					artist: "塞壬唱片-MSR",
-					url: "http://music.163.com/song/media/outer/url?id=1460626792.mp3",
-					image: "https://web.hycdn.cn/siren/pic/20210322/fe18ca43cbf7e7fc3541081d7a62ccef.jpg"
-				},
-				{
-					title: "Requiem",
-					artist: "塞壬唱片-MSR",
-					url: "http://music.163.com/song/media/outer/url?id=1444493780.mp3",
-					image: "https://web.hycdn.cn/siren/pic/20210322/14db9942c28a5abba48b9dfe2d99e39a.jpg"
-				},
-				{
-					title: "Renegade",
-					artist: "塞壬唱片-MSR",
-					url: "http://music.163.com/song/media/outer/url?id=1444493657.mp3",
-					image: "https://web.hycdn.cn/siren/pic/20210322/40a13076601806e37c5394049cebc5b1.jpg"
-				},
-				{
-					title: "故乡的风",
-					artist: "塞壬唱片-MSR",
-					url: "http://music.163.com/song/media/outer/url?id=1431593851.mp3",
-					image: "https://web.hycdn.cn/siren/pic/20210322/c755e05031749ec0d7422078ae3189e7.jpg"
-				},
-				{
-					title: "独行长路",
-					artist: "塞壬唱片-MSR",
-					url: "http://music.163.com/song/media/outer/url?id=1427681638.mp3",
-					image: "https://web.hycdn.cn/siren/pic/20210727/d01c9b65184c11ed6fe7b1019a023b16.jpg"
-				},
-				{
-					title: "Speed of Light",
-					artist: "塞壬唱片-MSR",
-					url: "http://music.163.com/song/media/outer/url?id=1403774122.mp3",
-					image: "https://web.hycdn.cn/siren/pic/20210322/56cbcd1d0093d8ee8ee22bf6d68ab4a6.jpg"
-				}
-            ],
-        };
+		return {
+				audio: "",
+				audioFile: "",
+				imgLoaded: false,
+				currentlyPlaying: false,
+				isPlaylistActive: false,
+				modeIndex: 0,
+				currentSong: 0,
+				currentTime: 0,
+				trackDuration: 0,
+				currentProgressBar: 0,
+				checkingCurrentPositionInTrack: "",
+				musicPlaylist: [
+					{
+						title: "Bluish Light",
+						artist: "塞壬唱片-MSR",
+						url: "http://music.163.com/song/media/outer/url?id=1941658812.mp3",
+						image: "https://web.hycdn.cn/siren/pic/20220503/6fbb2ddca4efb6bb4ff4ead791fb447e.jpg"
+					},
+					{
+						title: "Rapier",
+						artist: "塞壬唱片-MSR",
+						url: "http://music.163.com/song/media/outer/url?id=1941656969.mp3",
+						image: "https://web.hycdn.cn/siren/pic/20220502/b08a1ada5fa2a6937ae6c1208a40cb93.jpg"
+					},
+					{
+						title: "March On!",
+						artist: "塞壬唱片-MSR",
+						url: "http://music.163.com/song/media/outer/url?id=1936324213.mp3",
+						image: "https://web.hycdn.cn/siren/pic/20220413/784addeeb3f6bd9cd001e3021f3483da.jpg"
+					},
+					{
+						title: "Eternal Flame",
+						artist: "塞壬唱片-MSR",
+						url: "http://music.163.com/song/media/outer/url?id=1927441611.mp3",
+						image: "https://web.hycdn.cn/siren/pic/20220314/a79347b6d2e3a57874b552699ce9ee2c.jpg"
+					},
+					{
+						title: "Radiant",
+						artist: "塞壬唱片-MSR",
+						url: "http://music.163.com/song/media/outer/url?id=1890402858.mp3",
+						image: "https://web.hycdn.cn/siren/pic/20211101/733831c7d034b83dc78f783f8748cc65.jpg"
+					},
+					{
+						title: "Towards Her Light",
+						artist: "塞壬唱片-MSR",
+						url: "http://music.163.com/song/media/outer/url?id=1876956006.mp3",
+						image: "https://web.hycdn.cn/siren/pic/20210916/113f508e9ca2f66642cbb85e7a4699be.jpg"
+					},
+					{
+						title: "Immutable",
+						artist: "塞壬唱片-MSR",
+						url: "http://music.163.com/song/media/outer/url?id=1840976599.mp3",
+						image: "https://web.hycdn.cn/siren/pic/20210501/01bdad2a0a6876eaee3c23bf0812a73a.png"
+					},
+					{
+						title: "Stay Gold",
+						artist: "塞壬唱片-MSR",
+						url: "http://music.163.com/song/media/outer/url?id=1488275299.mp3",
+						image: "https://web.hycdn.cn/siren/pic/20210322/430cb5399e272d97779cf5f13681628f.jpg"
+					},
+					{
+						title: "Lullabye",
+						artist: "塞壬唱片-MSR",
+						url: "http://music.163.com/song/media/outer/url?id=1491503292.mp3",
+						image: "https://web.hycdn.cn/siren/pic/20210322/5fb9a7a5d2045c5c6a16f2c4ed8e08f4.jpg"
+					},
+					{
+						title: "Alive",
+						artist: "塞壬唱片-MSR",
+						url: "http://music.163.com/song/media/outer/url?id=1473615924.mp3",
+						image: "https://web.hycdn.cn/siren/pic/20210322/7d9ab6167720f8f4b982c83fbe89ce0b.jpg"
+					},
+					{
+						title: "Evolutionary Mechanization",
+						artist: "塞壬唱片-MSR",
+						url: "http://music.163.com/song/media/outer/url?id=1473615377.mp3",
+						image: "https://web.hycdn.cn/siren/pic/20210322/80c0cbb9bec652d21e939586e19aa9ed.jpg"
+					},
+					{
+						title: "Everything's Alright",
+						artist: "塞壬唱片-MSR",
+						url: "http://music.163.com/song/media/outer/url?id=1460626792.mp3",
+						image: "https://web.hycdn.cn/siren/pic/20210322/fe18ca43cbf7e7fc3541081d7a62ccef.jpg"
+					},
+					{
+						title: "Requiem",
+						artist: "塞壬唱片-MSR",
+						url: "http://music.163.com/song/media/outer/url?id=1444493780.mp3",
+						image: "https://web.hycdn.cn/siren/pic/20210322/14db9942c28a5abba48b9dfe2d99e39a.jpg"
+					},
+					{
+						title: "Renegade",
+						artist: "塞壬唱片-MSR",
+						url: "http://music.163.com/song/media/outer/url?id=1444493657.mp3",
+						image: "https://web.hycdn.cn/siren/pic/20210322/40a13076601806e37c5394049cebc5b1.jpg"
+					},
+					{
+						title: "故乡的风",
+						artist: "塞壬唱片-MSR",
+						url: "http://music.163.com/song/media/outer/url?id=1431593851.mp3",
+						image: "https://web.hycdn.cn/siren/pic/20210322/c755e05031749ec0d7422078ae3189e7.jpg"
+					},
+					{
+						title: "独行长路",
+						artist: "塞壬唱片-MSR",
+						url: "http://music.163.com/song/media/outer/url?id=1427681638.mp3",
+						image: "https://web.hycdn.cn/siren/pic/20210727/d01c9b65184c11ed6fe7b1019a023b16.jpg"
+					},
+					{
+						title: "Speed of Light",
+						artist: "塞壬唱片-MSR",
+						url: "http://music.163.com/song/media/outer/url?id=1403774122.mp3",
+						image: "https://web.hycdn.cn/siren/pic/20210322/56cbcd1d0093d8ee8ee22bf6d68ab4a6.jpg"
+					}
+				],
+				Mode: [
+					{
+						title: "顺序播放/Order Play",
+						icon: "ri-order-play-fill"
+					},
+					{
+						title: "随机播放/Shuffle Play",
+						icon: "ri-shuffle-fill"
+					},
+					{
+						title: "单曲循环/Single Cycle",
+						icon: "ri-repeat-one-fill"
+					},
+				],
+		};
 	},
 	mounted: function() {
-		this.changeSong();
+		this.changeSong(this.currentSong, false);
 		this.audio.loop = false;
 		
 	},
@@ -194,32 +212,53 @@ export default {
 		}
 	},
 	methods: {
-		togglePlaylist: function() {
-			this.isPlaylistActive = !this.isPlaylistActive;
+		nextMode: function() {
+			this.modeIndex = (this.modeIndex + 1) % this.Mode.length;
+		},
+		nextIndex: function() {
+			switch (this.modeIndex) {
+				case 0:
+					this.currentSong = (this.currentSong + 1) % this.musicPlaylist.length;
+					break;
+				case 1:
+					this.currentSong = Math.floor(Math.random() * this.musicPlaylist.length);
+					break;
+			}
+			return this.currentSong;
+		},
+		prevIndex: function() {
+			switch (this.modeIndex) {
+				case 0:
+					this.currentSong = (this.currentSong - 1 + this.musicPlaylist.length) % this.musicPlaylist.length;
+					break;
+				case 1:
+					this.currentSong = Math.floor(Math.random() * this.musicPlaylist.length);
+					break;
+			}
+			return this.currentSong;
 		},
 		nextSong: function() {
-			if (this.currentSong < this.musicPlaylist.length - 1)
-				this.changeSong(this.currentSong + 1);
+			this.changeSong(this.nextIndex());
 		},
 		prevSong: function() {
-			if (this.currentSong > 0) this.changeSong(this.currentSong - 1);
+			this.changeSong(this.prevIndex());
 		},
-		changeSong: function(index) {
+		changeSong: function(index, pausePrev = true) {
 			var wasPlaying = this.currentlyPlaying;
 			this.imageLoaded = false;
-			if (index !== undefined) {
+			if (pausePrev == true) {
 				this.stopAudio();
-				this.currentSong = index;
 			}
+			this.currentSong = index;
 			this.audioFile = this.musicPlaylist[this.currentSong].url;
 			this.audio = new Audio(this.audioFile);
-			var localThis = this;
+			var that = this;
 			this.audio.addEventListener("loadedmetadata", function() {
-				localThis.trackDuration = Math.round(this.duration);
+				that.trackDuration = Math.round(this.duration);
 			});
 			this.audio.addEventListener("ended", this.handleEnded);
 			if (wasPlaying) {
-				this.playAudio();
+				this.playPauseAudio();
 			}
 		},
 		isCurrentSong: function(index) {
@@ -231,60 +270,45 @@ export default {
 		getCurrentSong: function(currentSong) {
 			return this.musicPlaylist[currentSong].url;
 		},
-		playAudio: function() {
-			if (
-				this.currentlyStopped == true &&
-				this.currentSong + 1 == this.musicPlaylist.length
-			) {
-				this.currentSong = 0;
-				this.changeSong();
-			}
+		playPauseAudio: function() {
 			if (!this.currentlyPlaying) {
-				this.getCurrentTimeEverySecond(true);
-				this.currentlyPlaying = true;
-				this.audio.play();
+				this.playAudio();
 			} else {
 				this.stopAudio();
 			}
-			this.currentlyStopped = false;
+		},
+		playAudio: function() {
+			this.getCurrentTimeEverySecond();
+			this.currentlyPlaying = true;
+			this.audio.play();
 		},
 		stopAudio: function() {
 			this.audio.pause();
 			this.currentlyPlaying = false;
-			this.pausedMusic();
+			clearTimeout(this.checkingCurrentPositionInTrack);
 		},
 		handleEnded: function() {
-			if (this.currentSong + 1 == this.musicPlaylist.length) {
-				this.stopAudio();
-				this.currentlyPlaying = false;
-				this.currentlyStopped = true;
-			} else {
-				this.currentlyPlaying = false;
-				this.currentSong++;
-				this.changeSong();
-				this.playAudio();
-			}
+			this.changeSong(this.nextIndex());
 		},
 		onImageLoaded: function() {
 			this.imgLoaded = true;
 		},
-		getCurrentTimeEverySecond: function(startStop) {
-			var localThis = this;
+		getCurrentTimeEverySecond: function() {
+			var that = this;
 			this.checkingCurrentPositionInTrack = setTimeout(
 				function() {
-					localThis.currentTime = localThis.audio.currentTime;
-					localThis.currentProgressBar =
-						localThis.audio.currentTime / localThis.trackDuration * 100;
-					localThis.getCurrentTimeEverySecond(true);
-				}.bind(this),
+					that.currentTime = that.audio.currentTime;
+					that.currentProgressBar =
+						that.audio.currentTime / that.trackDuration * 100;
+					that.getCurrentTimeEverySecond();
+				},
 				1000
 			);
 		},
-		pausedMusic: function() {
-			clearTimeout(this.checkingCurrentPositionInTrack);
-		},
 		clickProgress: function(event){
-			this.stopAudio();
+			if(this.currentlyPlaying == true){
+				this.stopAudio();
+			}
 			this.updateBar(event.pageX);
 		},
 		updateBar: function(x){
@@ -292,16 +316,16 @@ export default {
 			var maxduration = this.audio.duration;
 			var position = x - progress.getBoundingClientRect().left;
 			var percentage = (100 * position) / progress.offsetWidth;
-      		if (percentage > 100) {
-        		percentage = 100;
-      		}
-	  		if (percentage < 0) {
+			if (percentage > 100) {
+				percentage = 100;
+			}
+			if (percentage < 0) {
 				percentage = 0;
-	  		}
+			}
 			this.audio.currentTime = (maxduration * percentage) / 100;
 			this.currentTime = this.audio.currentTime;
 			this.currentProgressBar = this.currentTime / this.trackDuration * 100;
-			this.playAudio();
+			this.playPauseAudio();
 		},
 	},
 	watch: {
@@ -319,7 +343,7 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-// @import url('https://fonts.googleapis.com/css2?family=Inconsolata&family=Raleway&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Inconsolata&family=Montserrat&family=Raleway&display=swap');
 @font-face
 	font-family Bender
 	src url(../styles/Bender.woff)
@@ -330,16 +354,21 @@ export default {
 	box-sizing border-box
 .animated 
 	animation-duration 0.5s
-.audioPlayer 
+.audioPlayer
 	position relative
+	// width 100%
+	// max-width 800px
 	min-height 25rem
 	overflow hidden
 	padding 1.5rem
-	margin 0 auto
+	// margin auto 0
 	border 1px solid #eaeaea
 	border-radius 0.5rem
 	transition all ease .3s 
 	user-select none
+	// left 50%
+	// top 50%
+	// transform translate(-50%,-50%)
 	&:hover
 		border 1px solid transparent
 		transform translate(0px, -3px)
@@ -414,7 +443,7 @@ export default {
 				padding-left 1rem
 	.audioPlayerUI 
 		margin-top 1.5rem
-		will-change transform, filter
+		will-change transform
 		transition 0.5s
 		&.isDisabled 
 			transform scale(0.75) translateX(50%)
@@ -509,8 +538,8 @@ export default {
 			margin 0 auto
 			text-align center
 			.button
-				font-size 2rem
 				display inline-block
+				position relative
 				vertical-align middle
 				padding 0.5rem
 				margin 0 0.25rem
@@ -520,9 +549,10 @@ export default {
 				text-decoration none
 				cursor pointer
 				transition 0.5s
+				&#mode
+					transition 0.3s ease-in-out
 				&.play
-					font-size 4rem
-					margin 0 1.5rem
+					margin 0 auto
 				&:active 
 					opacity 0.75
 					transform scale(0.75)
@@ -531,7 +561,7 @@ export default {
 					cursor initial
 					&:active 
 						transform none
-                .icon
+				.icon
 					display flex
 		.currentTimeContainer
 			width 100%
@@ -551,11 +581,7 @@ export default {
 	font-size 0.8rem
 	font-family Bender !important
 	color rgba(0, 0, 0, 0.75)
-.loader 
-	margin 60px auto
-	font-size 10px
-	position relative
-	text-indent -9999em
+
 .slide-fade-enter-active 
 	transition all 0.3s ease
 .slide-fade-leave-active 
@@ -567,39 +593,27 @@ export default {
 	transition opacity 0.5s
 .fade-enter, .fade-leave-to 
 	opacity 0
-body 
-	background #29b6f6
-	color rgba(255, 255, 255, 0.7)
-	font-family Raleway, sans-serif
-	padding 3rem
-.heading 
-	text-align center
-	margin 0
-	margin 2rem 0
-	font-family Inconsolata, monospace
-	h1 
-		color #eceff1
-		margin 0
-		margin-bottom 1rem
-		font-size 1.75rem
-	p 
-		margin 0
-		font-size 0.85rem
-	a 
-		color rgba(255, 255, 255, 0.8)
-		transition 0.3s
-		text-decoration-style dotted
-		&:hover 
-			color rgba(255, 255, 255, 1) !important
-		&:visited 
-			color rgba(255, 255, 255, 0.5)
+
+.mode-slide-fade-enter-active, .mode-slide-fade-leave-active
+	transition all 0.1s ease
+.mode-slide-fade-enter, .mode-slide-fade-leave-active
+	opacity 0
+.mode-slide-fade-enter
+	transform translateY(10px)
+.mode-slide-fade-leave-active
+	transform translateY(-10px)
+
+::-webkit-scrollbar
+	width 0 !important
+::-webkit-scrollbar
+	width 0 !important
+	height 0
 
 @keyframes rotate 
 	from
 		transform rotate(0deg)
 	to
 		transform rotate(359deg)
-
 @keyframes beat1
 	0% 
 		transform scaleY(0)
@@ -607,7 +621,6 @@ body
 		transform scaleY(0.7)
 	100%
 		transform scaleY(0)
-
 
 @keyframes beat2
 	0%

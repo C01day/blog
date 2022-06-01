@@ -26,14 +26,13 @@ import {
   // RiBook2Fill,//文档
   BiJournal,
 
-  MdSkippreviousRound,
-  MdSkipnextRound,
-  MdPlayarrowRound,
-  MdPauseRound,
   BiSkipStartFill,
   BiSkipEndFill,
   BiPlayCircleFill,
   HiSolidPause,
+  RiOrderPlayFill,
+  RiShuffleFill,
+  RiRepeatOneFill
 } from "oh-vue-icons/icons";
 
 OhVueIcon.add(
@@ -59,14 +58,13 @@ OhVueIcon.add(
   // RiBook2Fill,
   BiJournal,
 
-  MdSkippreviousRound,
-  MdSkipnextRound,
-  MdPlayarrowRound,
-  MdPauseRound,
   BiSkipStartFill,
   BiSkipEndFill,
   BiPlayCircleFill,
   HiSolidPause,
+  RiOrderPlayFill,
+  RiShuffleFill,
+  RiRepeatOneFill
 );
 
 export default ({
