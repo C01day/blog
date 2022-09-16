@@ -110,7 +110,7 @@ module.exports = {
         github: "C01day/blog",
         linkedin: "c01day",
         facebook: "",
-        twitter: "",
+        twitter: "_C01day",
         zhihu: "C01day",
         email: "ddaweizhou@gmail.com"
       }

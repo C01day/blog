@@ -88,6 +88,24 @@ export default {
 				checkingCurrentPositionInTrack: "",
 				musicPlaylist: [
 					{
+						title: "Ensheath",
+						artist: "塞壬唱片-MSR",
+						url: "http://music.163.com/song/media/outer/url?id=1978870845.mp3",
+						image: "https://web.hycdn.cn/siren/pic/20220907/f4fbe128f184c617df3c597bcefb6687.jpg",
+					},
+					{
+						title: "Operation Ashring",
+						artist: "塞壬唱片-MSR",
+						url: "http://music.163.com/song/media/outer/url?id=1975296386.mp3",
+						image: "https://web.hycdn.cn/siren/pic/20220826/5dff26633eccf4654a47098f0f45387f.jpg",
+					},
+					{
+						title: "Undertopia",
+						artist: "塞壬唱片-MSR",
+						url: "http://music.163.com/song/media/outer/url?id=1971052096.mp3",
+						image: "https://web.hycdn.cn/siren/pic/20220811/3de44c2c9bd878319779fd5c6f870bab.jpg",
+					},
+					{
 						title: "Operation Deepness",
 						artist: "塞壬唱片-MSR",
 						url: "http://music.163.com/song/media/outer/url?id=1948689820.mp3",
