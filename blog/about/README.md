@@ -4,7 +4,6 @@ title: About
 avatar: /img/avatar.jpg
 name: 周大为
 subname: DaWei Zhou
-# cv: /files/cv/brief/cn.pdf
 
 interests:
   - 魔方
