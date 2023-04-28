@@ -148,6 +148,8 @@ module.exports = {
       <br>
       Powered by <a href="https://vuepress.vuejs.org" target="_blank">VuePress</a> &
       <a href="https://github.com/Renovamen/vuepress-theme-gungnir" target="_blank">Gungnir</a>
+      <br>
+      <a href="https://beian.miit.gov.cn/" target="_blank">赣ICP备2023002564号-1</a>
     `
   },
   markdown: {
