@@ -486,11 +486,15 @@ export default {
 @font-face
 	font-family Geometos
 	src url(../styles/Geometos.woff)
+@font-face
+	font-family Montserrat
+	src url(../styles/Montserrat.woff)
 * 
 	box-sizing border-box
 .animated 
 	animation-duration 0.5s
 .audioPlayer
+	background-color #FFF
 	position relative
 	// width 100%
 	// max-width 800px
@@ -568,25 +572,31 @@ export default {
 				cursor pointer
 			.title 
 				color rgba(0, 0, 0, 1)
+				font-family Montserrat
 				font-size 1.2rem
 				margin 0.2rem 0
 			.artist 
 				color rgba(0, 0, 0, 0.5)
+				font-family Montserrat
 				font-size 0.8rem
 				margin 0.2rem 0
 			&.isActive 
 				border-left-color black
 				padding-left 1rem
+				.title
+					color red
 	.audioPlayerUI 
 		margin-top 1.5rem
 		will-change transform
 		transition 0.5s
 		&.isDisabled 
-			transform scale(0.75) translateX(50%)
+			transform scale(0.8) translateX(40%)
+			filter blur(0.12rem)
 		.albumDetails 
 			text-align center
 			margin 2rem 0 1.5rem 0
-			p 
+			p
+				line-height 1.7 
 				margin 0px
 				&.title
 					font-family Geometos 
@@ -595,12 +605,14 @@ export default {
 					margin 0.2rem 0
 				&.artist 
 					margin 0.2rem 0
+					font-family Montserrat
 					font-size 0.8rem
 					font-weight none
 					color rgba(0, 0, 0, 0.75)
 					transition-delay 100ms
 			.page-container
-				display none
+				// display none
+				display inline-block
 				margin 0.2rem 0
 				position relative
 				background-color #FFF
@@ -741,9 +753,8 @@ export default {
 
 ::-webkit-scrollbar
 	width 0 !important
-::-webkit-scrollbar
-	width 0 !important
 	height 0
+	display none
 
 @keyframes rotate 
 	from
@@ -796,9 +807,9 @@ export default {
 		grid-template-areas "a b" "c d"
 		.albumDetails 
 			text-align left !important
-			margin 0 0 1.5rem 3.6rem !important
+			margin 0 0 0 3.6rem !important
 			.page-container
-				display block !important
+				display inline-block !important
 		.albumImage 
 			width 17rem
 			height 17rem
@@ -812,4 +823,9 @@ export default {
 		.timeAndProgress
 			grid-area c
 			margin auto 0.2rem
+
+@media (max-width: 718px)
+	.audioPlayerUI
+		&.isDisabled 
+			transform scale(0.8) translateX(100%) !important
 </style>
