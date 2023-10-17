@@ -22,8 +22,8 @@
 		<div class="albumImage">
 			<transition name="fade" mode="out-in" type='transition' appear>
 				<div :class="['disc-back', currentlyPlaying ? '' : 'paused']" :key="currentSong">
-					<img @load="onImageLoaded()" :src="$withBase('/img/disc.png')" ondragstart="return false;" class="disc">
-					<img @load="onImageLoaded()" :src="musicPlaylist[currentSong].image" ondragstart="return false;" class="poster">
+					<img :src="$withBase('/img/disc.png')" ondragstart="return false;" class="disc">
+					<img v-if="posterLoad" :src="musicPlaylist[currentSong].image" ondragstart="return false;" class="poster">
 				</div>
 			</transition>
 			<!-- <div class="loader" :key="currentSong">Loading...</div> -->
@@ -80,6 +80,7 @@ export default {
 				imgLoaded: false,
 				currentlyPlaying: false,
 				isPlaylistActive: false,
+				posterLoad: false,
 				modeIndex: 0,
 				currentSong: 0,
 				currentTime: 0,
@@ -87,156 +88,230 @@ export default {
 				currentProgressBar: 0,
 				checkingCurrentPositionInTrack: "",
 				musicPlaylist: [
+				{
+						id: "1995166023",
+						title: "Fake Love (Orchestral Version)",
+						artist: "MDP",
+					},
 					{
+						id: "2068111443",
+						title: "Miss You",
+						artist: "塞壬唱片-MSR",
+						image: "https://web.hycdn.cn/siren/pic/20230731/a34ad60a289a701a01b76a09eb81d6cf.jpg",
+					},
+					{
+						id: "2060731820",
+						title: "Mortal Eye",
+						artist: "塞壬唱片-MSR",
+						image: "https://web.hycdn.cn/siren/pic/20230704/9e91da5698c3902a431da7eadb7dde98.jpg",
+					},
+					{
+						id: "2042920491",
+						title: "The cure",
+						artist: "塞壬唱片-MSR",
+						image: "https://web.hycdn.cn/siren/pic/20230427/840c552b50612166caa8ee52ac7f6654.jpg",
+					},
+					{
+						id: "2042872786",
+						title: "Dormant Craving",
+						artist: "塞壬唱片-MSR",
+						image: "https://web.hycdn.cn/siren/pic/20230427/cee3ccefac83068107f90baf7adaa58d.jpg",
+					},
+					{
+						id: "2042849489",
+						title: "Morning Dew",
+						artist: "塞壬唱片-MSR",
+						image: "https://web.hycdn.cn/siren/pic/20230427/b60c8297f9a8f12a161fbf3524474b60.jpg",
+					},
+					{
+						id: "2006550948",
+						title: "Flame Shadow",
+						artist: "塞壬唱片-MSR",
+						image: "https://web.hycdn.cn/siren/pic/20221215/fb2e10e1dc62ae835f472c6ac27258b8.jpg",
+					},
+					{
+						id: "1993340899",
+						title: "Sentenced",
+						artist: "塞壬唱片-MSR",
+						image: "https://web.hycdn.cn/siren/pic/20221102/b332ec19df34c372e56e2c9a7c8588ac.jpg",
+					},
+					{
+						id: "1990154664",
+						title: "Running In The Dark",
+						artist: "塞壬唱片-MSR",
+						image: "https://p1.music.126.net/xxQXfMnMlJyMlydzVsRcag==/109951167974724190.jpg",
+					},
+					{
+						id: "1988460950",
+						title: "Rekindle",
+						artist: "塞壬唱片-MSR",
+						image: "https://web.hycdn.cn/siren/pic/20221012/2f8846f585301f0cd6892db6bf1f3769.jpg",
+					},
+					{
+						id: "1978870845",
 						title: "Ensheath",
 						artist: "塞壬唱片-MSR",
-						url: "http://music.163.com/song/media/outer/url?id=1978870845.mp3",
 						image: "https://web.hycdn.cn/siren/pic/20220907/f4fbe128f184c617df3c597bcefb6687.jpg",
 					},
 					{
+						id: "1975296386",
 						title: "Operation Ashring",
 						artist: "塞壬唱片-MSR",
-						url: "http://music.163.com/song/media/outer/url?id=1975296386.mp3",
 						image: "https://web.hycdn.cn/siren/pic/20220826/5dff26633eccf4654a47098f0f45387f.jpg",
 					},
 					{
+						id: "1971052096",
 						title: "Undertopia",
 						artist: "塞壬唱片-MSR",
-						url: "http://music.163.com/song/media/outer/url?id=1971052096.mp3",
 						image: "https://web.hycdn.cn/siren/pic/20220811/3de44c2c9bd878319779fd5c6f870bab.jpg",
 					},
 					{
+						id: "1948689820",
 						title: "Operation Deepness",
 						artist: "塞壬唱片-MSR",
-						url: "http://music.163.com/song/media/outer/url?id=1948689820.mp3",
-						image: "https://web.hycdn.cn/siren/pic/20220520/e5cc4eff1a6b7ebd69072470238b5fe2.jpg"
+						image: "https://web.hycdn.cn/siren/pic/20220520/e5cc4eff1a6b7ebd69072470238b5fe2.jpg",
 					},
 					{
+						id: "1941658812",
 						title: "Bluish Light",
 						artist: "塞壬唱片-MSR",
-						url: "http://music.163.com/song/media/outer/url?id=1941658812.mp3",
-						image: "https://web.hycdn.cn/siren/pic/20220503/6fbb2ddca4efb6bb4ff4ead791fb447e.jpg"
+						image: "https://web.hycdn.cn/siren/pic/20220503/6fbb2ddca4efb6bb4ff4ead791fb447e.jpg",
 					},
 					{
+						id: "1941656969",
 						title: "Rapier",
 						artist: "塞壬唱片-MSR",
-						url: "http://music.163.com/song/media/outer/url?id=1941656969.mp3",
-						image: "https://web.hycdn.cn/siren/pic/20220502/b08a1ada5fa2a6937ae6c1208a40cb93.jpg"
+						image: "https://web.hycdn.cn/siren/pic/20220502/b08a1ada5fa2a6937ae6c1208a40cb93.jpg",
 					},
 					{
+						id: "1941653825",
 						title: "Awaken",
 						artist: "塞壬唱片-MSR",
-						url: "http://music.163.com/song/media/outer/url?id=1941653825.mp3",
-						image: "https://web.hycdn.cn/siren/pic/20220501/7c4d1d285ef83744b167bbdadb29d239.jpg"
+						image: "https://web.hycdn.cn/siren/pic/20220501/7c4d1d285ef83744b167bbdadb29d239.jpg",
 					},
 					{
+						id: "1936324213",
 						title: "March On!",
 						artist: "塞壬唱片-MSR",
-						url: "http://music.163.com/song/media/outer/url?id=1936324213.mp3",
-						image: "https://web.hycdn.cn/siren/pic/20220413/784addeeb3f6bd9cd001e3021f3483da.jpg"
+						image: "https://web.hycdn.cn/siren/pic/20220413/784addeeb3f6bd9cd001e3021f3483da.jpg",
 					},
 					{
+						id: "1927441611",
 						title: "Eternal Flame",
 						artist: "塞壬唱片-MSR",
-						url: "http://music.163.com/song/media/outer/url?id=1927441611.mp3",
-						image: "https://web.hycdn.cn/siren/pic/20220314/a79347b6d2e3a57874b552699ce9ee2c.jpg"
+						image: "https://web.hycdn.cn/siren/pic/20220314/a79347b6d2e3a57874b552699ce9ee2c.jpg",
 					},
 					{
+						id: "1922637266",
 						title: "Operation Dawnseeker",
 						artist: "塞壬唱片-MSR",
-						url: "http://music.163.com/song/media/outer/url?id=1922637266.mp3",
-						image: "https://web.hycdn.cn/siren/pic/20220225/78ad118924912a39738aaeaf252be1a6.jpg"
+						image: "https://web.hycdn.cn/siren/pic/20220225/78ad118924912a39738aaeaf252be1a6.jpg",
 					},
 					{
+						id: "1893260974",
 						title: "Operation Lead Seal",
 						artist: "塞壬唱片-MSR",
-						url: "http://music.163.com/song/media/outer/url?id=1893260974.mp3",
-						image: "https://web.hycdn.cn/siren/pic/20211109/e72022facca61c0ddfb0ab82c8e515b7.jpg"
+						image: "https://web.hycdn.cn/siren/pic/20211109/e72022facca61c0ddfb0ab82c8e515b7.jpg",
 					},
 					{
+						id: "1890402858",
 						title: "Radiant",
 						artist: "塞壬唱片-MSR",
-						url: "http://music.163.com/song/media/outer/url?id=1890402858.mp3",
-						image: "https://web.hycdn.cn/siren/pic/20211101/733831c7d034b83dc78f783f8748cc65.jpg"
+						image: "https://web.hycdn.cn/siren/pic/20211101/733831c7d034b83dc78f783f8748cc65.jpg",
 					},
 					{
+						id: "1876956006",
 						title: "Towards Her Light",
 						artist: "塞壬唱片-MSR",
-						url: "http://music.163.com/song/media/outer/url?id=1876956006.mp3",
-						image: "https://web.hycdn.cn/siren/pic/20210916/113f508e9ca2f66642cbb85e7a4699be.jpg"
+						image: "https://web.hycdn.cn/siren/pic/20210916/113f508e9ca2f66642cbb85e7a4699be.jpg",
 					},
 					{
+						id: "1840976599",
 						title: "Immutable",
 						artist: "塞壬唱片-MSR",
-						url: "http://music.163.com/song/media/outer/url?id=1840976599.mp3",
-						image: "https://web.hycdn.cn/siren/pic/20210501/01bdad2a0a6876eaee3c23bf0812a73a.png"
+						image: "https://web.hycdn.cn/siren/pic/20210501/01bdad2a0a6876eaee3c23bf0812a73a.png",
 					},
 					{
+						id: "1832392174",
 						title: "Operation Blade",
 						artist: "塞壬唱片-MSR",
-						url: "http://music.163.com/song/media/outer/url?id=1832392174.mp3",
-						image: "https://web.hycdn.cn/siren/pic/20210325/923286f4ab26284016de9ed03150fad7.jpg"
+						image: "https://web.hycdn.cn/siren/pic/20210325/923286f4ab26284016de9ed03150fad7.jpg",
 					},
 					{
+						id: "1491503292",
 						title: "Lullabye",
 						artist: "塞壬唱片-MSR",
-						url: "http://music.163.com/song/media/outer/url?id=1491503292.mp3",
-						image: "https://web.hycdn.cn/siren/pic/20210322/5fb9a7a5d2045c5c6a16f2c4ed8e08f4.jpg"
+						image: "https://web.hycdn.cn/siren/pic/20210322/5fb9a7a5d2045c5c6a16f2c4ed8e08f4.jpg",
 					},
 					{
+						id: "1488275299",
 						title: "Stay Gold",
 						artist: "塞壬唱片-MSR",
-						url: "http://music.163.com/song/media/outer/url?id=1488275299.mp3",
-						image: "https://web.hycdn.cn/siren/pic/20210322/430cb5399e272d97779cf5f13681628f.jpg"
+						image: "https://web.hycdn.cn/siren/pic/20210322/430cb5399e272d97779cf5f13681628f.jpg",
 					},
 					{
+						id: "1473615924",
 						title: "Alive",
 						artist: "塞壬唱片-MSR",
-						url: "http://music.163.com/song/media/outer/url?id=1473615924.mp3",
-						image: "https://web.hycdn.cn/siren/pic/20210322/7d9ab6167720f8f4b982c83fbe89ce0b.jpg"
+						image: "https://web.hycdn.cn/siren/pic/20210322/7d9ab6167720f8f4b982c83fbe89ce0b.jpg",
 					},
 					{
+						id: "1473615377",
 						title: "Evolutionary Mechanization",
 						artist: "塞壬唱片-MSR",
-						url: "http://music.163.com/song/media/outer/url?id=1473615377.mp3",
-						image: "https://web.hycdn.cn/siren/pic/20210322/80c0cbb9bec652d21e939586e19aa9ed.jpg"
+						image: "https://web.hycdn.cn/siren/pic/20210322/80c0cbb9bec652d21e939586e19aa9ed.jpg",
 					},
 					{
+						id: "1460626792",
 						title: "Everything's Alright",
 						artist: "塞壬唱片-MSR",
-						url: "http://music.163.com/song/media/outer/url?id=1460626792.mp3",
-						image: "https://web.hycdn.cn/siren/pic/20210322/fe18ca43cbf7e7fc3541081d7a62ccef.jpg"
+						image: "https://web.hycdn.cn/siren/pic/20210322/fe18ca43cbf7e7fc3541081d7a62ccef.jpg",
 					},
 					{
+						id: "1444493780",
 						title: "Requiem",
 						artist: "塞壬唱片-MSR",
-						url: "http://music.163.com/song/media/outer/url?id=1444493780.mp3",
-						image: "https://web.hycdn.cn/siren/pic/20210322/14db9942c28a5abba48b9dfe2d99e39a.jpg"
+						image: "https://web.hycdn.cn/siren/pic/20210322/14db9942c28a5abba48b9dfe2d99e39a.jpg",
 					},
 					{
+						id: "1444493657",
 						title: "Renegade",
 						artist: "塞壬唱片-MSR",
-						url: "http://music.163.com/song/media/outer/url?id=1444493657.mp3",
-						image: "https://web.hycdn.cn/siren/pic/20210322/40a13076601806e37c5394049cebc5b1.jpg"
+						image: "https://web.hycdn.cn/siren/pic/20210322/40a13076601806e37c5394049cebc5b1.jpg",
 					},
 					{
+						id: "1431593851",
 						title: "故乡的风",
 						artist: "塞壬唱片-MSR",
-						url: "http://music.163.com/song/media/outer/url?id=1431593851.mp3",
-						image: "https://web.hycdn.cn/siren/pic/20210322/c755e05031749ec0d7422078ae3189e7.jpg"
+						image: "https://web.hycdn.cn/siren/pic/20210322/c755e05031749ec0d7422078ae3189e7.jpg",
 					},
 					{
+						id: "1427681638",
 						title: "独行长路",
 						artist: "塞壬唱片-MSR",
-						url: "http://music.163.com/song/media/outer/url?id=1427681638.mp3",
-						image: "https://web.hycdn.cn/siren/pic/20210727/d01c9b65184c11ed6fe7b1019a023b16.jpg"
+						image: "https://web.hycdn.cn/siren/pic/20210727/d01c9b65184c11ed6fe7b1019a023b16.jpg",
 					},
 					{
+						id: "1403774122",
 						title: "Speed of Light",
 						artist: "塞壬唱片-MSR",
-						url: "http://music.163.com/song/media/outer/url?id=1403774122.mp3",
-						image: "https://web.hycdn.cn/siren/pic/20210322/56cbcd1d0093d8ee8ee22bf6d68ab4a6.jpg"
-					}
+						image: "https://web.hycdn.cn/siren/pic/20210322/56cbcd1d0093d8ee8ee22bf6d68ab4a6.jpg",
+					},
+					// {
+					// 	id: "464674427",
+					// 	title: "Symphony",
+					// 	artist: "Zara Larsson / Clean Bandit",
+					// },
+					{
+						id: "1927389937",
+						title: "Bones",
+						artist: "Imagine Dragons",
+					},
+					{
+						id: "28068202",
+						title: "Carol of the Bells",
+						artist: "Pentatonix",
+					},
 				],
 				Mode: [
 					{
@@ -303,8 +378,13 @@ export default {
 				this.stopAudio();
 			}
 			this.currentSong = index;
-			this.audioFile = this.musicPlaylist[this.currentSong].url;
+			this.audioFile = "http://music.163.com/song/media/outer/url?id=" + 
+								this.musicPlaylist[this.currentSong].id + ".mp3";
 			this.audio = new Audio(this.audioFile);
+
+			this.posterLoad = false;
+			if(this.musicPlaylist[this.currentSong].image !== undefined) this.posterLoad = true;
+
 			var that = this;
 			this.audio.addEventListener("loadedmetadata", function() {
 				that.trackDuration = Math.round(this.duration);
