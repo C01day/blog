@@ -59,8 +59,8 @@
 
 		<div class="timeAndProgress">
 			<div class="currentTimeContainer">
-				<span class="currentTime">{{ currentTime | fancyTimeFormat }}</span>
-				<span class="totalTime"> {{ trackDuration | fancyTimeFormat }}</span>
+				<span class="currentTime">{{ currentTimeShow }}</span>
+				<span class="totalTime"> {{ trackDurationShow }}</span>
 			</div>
 
 			<div class="currentProgressBar" ref="progress" @click="clickProgress">
@@ -329,17 +329,14 @@ export default {
 				],
 		};
 	},
-	mounted: function() {
-		this.changeSong(this.currentSong, false);
-		this.audio.loop = false;
-		
-	},
-	filters: {
-		fancyTimeFormat: function(s) {
-			return (s - (s %= 60)) / 60 + (9 < s ? ":" : ":0") + s;
-		}
-	},
 	methods: {
+		timeFormat: function(s) {
+			return (s - (s %= 60)) / 60 + (9 < s ? ":" : ":0") + s;
+		},
+		timeMillisecond: function(s) {
+			const splitTime = s.split(":").map((item) => Number(item));
+			return splitTime[0] * 60 + splitTime[1];
+		},
 		nextMode: function() {
 			this.modeIndex = (this.modeIndex + 1) % this.Mode.length;
 		},
@@ -385,10 +382,7 @@ export default {
 			this.posterLoad = false;
 			if(this.musicPlaylist[this.currentSong].image !== undefined) this.posterLoad = true;
 
-			var that = this;
-			this.audio.addEventListener("loadedmetadata", function() {
-				that.trackDuration = Math.round(this.duration);
-			});
+			this.audio.addEventListener("loadedmetadata", this.getTrackDuration);
 			this.audio.addEventListener("ended", this.handleEnded);
 			if (wasPlaying) {
 				this.playPauseAudio();
@@ -399,9 +393,6 @@ export default {
 				return true;
 			}
 			return false;
-		},
-		getCurrentSong: function(currentSong) {
-			return this.musicPlaylist[currentSong].url;
 		},
 		playPauseAudio: function() {
 			if (!this.currentlyPlaying) {
@@ -420,11 +411,11 @@ export default {
 			this.currentlyPlaying = false;
 			clearTimeout(this.checkingCurrentPositionInTrack);
 		},
+		getTrackDuration: function() {
+			this.trackDuration = Math.round(this.audio.duration);
+		},
 		handleEnded: function() {
 			this.changeSong(this.nextIndex());
-		},
-		onImageLoaded: function() {
-			this.imgLoaded = true;
 		},
 		getCurrentTimeEverySecond: function() {
 			var that = this;
@@ -434,7 +425,7 @@ export default {
 					that.currentProgressBar =
 						that.audio.currentTime / that.trackDuration * 100;
 					that.getCurrentTimeEverySecond();
-				},
+				}.bind(this),
 				1000
 			);
 		},
@@ -461,14 +452,26 @@ export default {
 			this.playPauseAudio();
 		},
 	},
+	mounted: function() {
+		this.changeSong(this.currentSong, false);
+		this.audio.loop = false;
+	},
 	watch: {
 		currentTime: function() {
 			this.currentTime = Math.round(this.currentTime);
-		}
+		},
 	},
-	beforeDestroy: function() {
+	computed: {
+		currentTimeShow() {
+			return this.timeFormat(this.currentTime);
+		},
+		trackDurationShow() {
+			return this.timeFormat(this.trackDuration);
+		},
+	},
+	beforeUnmount: function() {
 		this.audio.removeEventListener("ended", this.handleEnded);
-		this.audio.removeEventListener("loadedmetadata", this.handleEnded);
+		this.audio.removeEventListener("loadedmetadata", this.getTrackDuration);
 
 		clearTimeout(this.checkingCurrentPositionInTrack);
 	}
