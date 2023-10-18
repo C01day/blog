@@ -8,12 +8,15 @@
 ```bash
 # install dependencies
 yarn install
+npm ci
 
 # serve with hot reload
-yarn run dev  # vuepress dev blog
+yarn run dev
+npm run dev # vuepress dev blog
 
 # build for production with minification
-yarn run build  # vuepress build blog
+yarn run build
+npm run build # vuepress build blog
 ```
 
 &nbsp;

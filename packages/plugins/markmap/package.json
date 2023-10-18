@@ -23,6 +23,7 @@
   "author": "Renovamen <renovamenzxh@gmail.com>",
   "main": "index.js",
   "dependencies": {
-    "markmap-lib": "^0.9.3"
+    "markmap-lib": "^0.15.4",
+    "mermaid": "10.5.0"
   }
 }
