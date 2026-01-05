@@ -21,7 +21,8 @@ module.exports = {
       }
     ]
   ],
-  dest: 'public',
+  // public是vercel的打包路径,dist是github pages的打包路径
+  dest: 'dist',
   theme: "gungnir",
 
   locales: {
