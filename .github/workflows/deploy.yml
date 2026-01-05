@@ -54,4 +54,4 @@ jobs:
           # 部署到 gh-pages 分支
           BRANCH: gh-pages
           # 部署目录为 VuePress 的输出目录
-          FOLDER: public
+          # FOLDER: public
