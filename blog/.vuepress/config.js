@@ -21,8 +21,8 @@ module.exports = {
       }
     ]
   ],
-  // public是vercel的打包路径,dist是github pages的打包路径
-  dest: 'dist',
+  // public是vercel的打包路径,docs/.vuepress/dist是github pages的打包路径(注释掉就行)
+  // dest: 'dist',
   theme: "gungnir",
 
   locales: {
