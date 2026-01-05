@@ -1,6 +1,8 @@
 const path = require("path");
 
 module.exports = {
+  //自定义的仓库会部署到https://c01day.github.io/blog/
+  base: "/blog/",
   title: "C01day",
   description: "C01day's blog, powered by VuePress, themed by Gungnir.",
   
@@ -21,8 +23,8 @@ module.exports = {
       }
     ]
   ],
-  // public是vercel的打包路径,docs/.vuepress/dist是github pages的打包路径(注释掉就行)
-  // dest: 'dist',
+  // public是vercel的打包路径
+  dest: 'public',
   theme: "gungnir",
 
   locales: {
