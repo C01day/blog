@@ -144,7 +144,7 @@ module.exports = {
       }
     },
     footer: `
-      &copy; <a href="https://github.com/C01day" target="_blank">C01day</a> 2021-2025
+      &copy; <a href="https://github.com/C01day" target="_blank">C01day</a> 2021-2026
       <br>
       Powered by <a href="https://vuepress.vuejs.org" target="_blank">VuePress</a> &
       <a href="https://github.com/Renovamen/vuepress-theme-gungnir" target="_blank">Gungnir</a>
