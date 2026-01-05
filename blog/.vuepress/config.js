@@ -1,7 +1,7 @@
 const path = require("path");
 
 module.exports = {
-  //自定义的仓库会部署到https://c01day.github.io/blog/, 注释掉则会部署到vercel的https://www.c01day.com
+  //设置base, 自定义仓库会部署到github的https://c01day.github.io/blog/, 注释掉则会部署到vercel的https://www.c01day.com
   // base: "/blog/",
   title: "C01day",
   description: "C01day's blog, powered by VuePress, themed by Gungnir.",
